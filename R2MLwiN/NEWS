@@ -1,3 +1,7 @@
+Mon Aug 02 2021
+1. Changes
+   * Add option to allow use of R contrast specification
+
 Tue Apr 27 2021
 1. Bug fixing
    * Since R version 4.0.0 matrix objects inherit from class "array". Update check for positive-definite starting value matrix to take this into account.

@@ -49,6 +49,9 @@
 #' function call stopped and user invited to update via usual channels. Can
 #' disable via \code{FALSE} e.g. if slowing execution time down (for example
 #' in a simulation).
+#' @param allowcontrast If \code{TRUE}, factor variables will follow the R
+#' behaviour when creating contrast variables. If code {FALSE} (default) factor
+#' variables will be converted into a series of zero/one dummies.
 #' @param indata A \code{data.frame} object containing the data to be modelled.
 #' Deprecated syntax: by default this is \code{NULL} and the \code{data.frame}
 #' is instead referenced via \code{data}.
@@ -583,7 +586,7 @@
 #'
 #' @export
 runMLwiN <- function(Formula, levID = NULL, D = "Normal", data = NULL, estoptions = list(EstM = 0), BUGO = NULL, MLwiNPath = NULL,
-                     stdout = "", stderr = "", workdir = tempdir(), checkversion = TRUE, indata = NULL, saveworksheet = NULL) {
+                     stdout = "", stderr = "", workdir = tempdir(), checkversion = TRUE, allowcontrast = FALSE, indata = NULL, saveworksheet = NULL) {
   if (!is.null(indata) && !is.null(data)) {
     stop("Only one of data and indata can be specified")
   }
@@ -659,6 +662,31 @@ runMLwiN <- function(Formula, levID = NULL, D = "Normal", data = NULL, estoption
       }
     }
   }
+
+  respvars <- all.vars(stats::update(Formula, . ~ NULL))
+
+  for (var in colnames(indata)) {
+    if (!(var %in% respvars)) {
+      unordcontr <- options("contrasts")$contrasts["unordered"]
+      ordcontr <- options("contrasts")$contrasts["ordered"]
+      resetcontr <- FALSE
+      if (is.factor(indata[[var]])) {
+        if (!is.ordered(indata[[var]]) && unordcontr != "contr.treatment") {
+          resetcontr <- TRUE
+        }
+        if (is.ordered(indata[[var]]) && ordcontr != "contr.treatment") {
+          resetcontr <- TRUE
+        }
+      }
+      if (is.null(attr(indata[[var]], "contrasts")) && resetcontr == TRUE) {
+        if (allowcontrast == FALSE) {
+          warning(paste0("specified contrasts for variable ", var, " will be ignored. To enable this set allowcontrast to TRUE (this will be the default in future package releases)"))
+          contrasts(indata[[var]]) <- contr.treatment(levels(indata[[var]]))
+        }
+      }
+    }
+  }
+
 
   EstM <- estoptions$EstM
   if (is.null(EstM))

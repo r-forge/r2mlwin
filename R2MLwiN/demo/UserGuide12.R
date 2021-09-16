@@ -49,7 +49,7 @@ summary(mmmec)
 
 addmargins(with(mmmec, table(nation)))
 
-contrasts(mmmec$nation, 9) <- diag(9)
+contrasts(mmmec$nation, 9) <- contr.treatment(levels(mmmec$nation), contrasts = FALSE)
 
 (mymodel5 <- runMLwiN(log(obs) ~ 0 + nation + nation:uvbi + offset(log(exp)) + (1 | region), D = "Poisson", estoptions = list(Meth = 0, 
   nonlinear = c(N = 1, M = 2)), data = mmmec))

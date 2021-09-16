@@ -325,17 +325,11 @@ Formula.translate <- function(Formula, D = "Normal", indata) {
     if (ncategstr0 > 0) {
       # extend data
       for (ii in 1:ncategstr1) {
-        f.ext <- stats::as.formula(eval(paste("~0+", categstr1[ii])))
-        contrMat <- attr(indata[[categstr1[ii]]], "contrasts")
-        na_act <- options("na.action")[[1]]
-        options(na.action = "na.pass")
-        if (is.null(contrMat)) {
-          data.ext <- stats::model.matrix(f.ext, indata)[, -1, drop = FALSE]
-        } else {
-          keeppos <- rowSums(contrMat) > 0
-          data.ext <- stats::model.matrix(f.ext, indata)[, keeppos, drop = FALSE]
-        }
-        options(na.action = na_act)
+        f.ext <- stats::as.formula(eval(paste("~", categstr1[ii])))
+        mf.ext <- stats::model.frame(f.ext, indata, na.action = na.pass)
+        contrMat <- attr(mf.ext, "contrasts")
+        mm.ext <- stats::model.matrix(f.ext, mf.ext)
+        data.ext <- mm.ext[, which(attr(mm.ext, "assign") == 1), drop = FALSE]
         colnames(data.ext) <- gsub("\\.", "\\_", colnames(data.ext))
         categstr2[[categstr1[ii]]] <- colnames(data.ext)
         indata <- cbind(indata, as.data.frame(data.ext))
