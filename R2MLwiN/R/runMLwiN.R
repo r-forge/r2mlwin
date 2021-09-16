@@ -1092,6 +1092,7 @@ version:date:md5:filename:x64:trial:platform
 3.05:Mar 2020:d54cf6d16aebe7f542e93fec4b010fa9:mlnscript:TRUE:FALSE:lin
 3.05:Mar 2020:510f01a981c70fe0b4936cdef1013570:mlnscript:TRUE:FALSE:lin
 3.05:Mar 2020:24b5369bf38540607fba2a45b2f4d209:mlnscript:TRUE:FALSE:lin
+3.05:Mar 2020:68a94c69c99f28141c3130c499bd908a:mlnscript:TRUE:FALSE:lin
 3.05:Mar 2020:242fa9c879cc51df5a1fd613a739d4c3:mlnscript:FALSE:FALSE:lin
 3.05:Mar 2020:3ab89e99ef98912084a9404c65ca233b:mlnscript:TRUE:FALSE:mac
 3.05:Mar 2020:714a19157648de1e59903ea491dcc6b7:mlnscript:TRUE:FALSE:bsd
