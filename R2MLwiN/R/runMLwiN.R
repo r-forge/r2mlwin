@@ -681,7 +681,7 @@ runMLwiN <- function(Formula, levID = NULL, D = "Normal", data = NULL, estoption
       if (is.null(attr(indata[[var]], "contrasts")) && resetcontr == TRUE) {
         if (allowcontrast == FALSE) {
           warning(paste0("specified contrasts for variable ", var, " will be ignored. To enable this set allowcontrast to TRUE (this will be the default in future package releases)"))
-          contrasts(indata[[var]]) <- contr.treatment(levels(indata[[var]]))
+          stats::contrasts(indata[[var]]) <- stats::contr.treatment(levels(indata[[var]]))
         }
       }
     }
