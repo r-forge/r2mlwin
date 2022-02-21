@@ -3299,7 +3299,10 @@ version:date:md5:filename:x64:trial:platform
     if (nchains != 1) {
       chains <- coda::mcmc.list(chainslist)
       if (!is.null(resi.store.levs)) {
-        resiChains <- coda::mcmc.list(resichainslist)
+        resiChains <- list()
+        for (resname in names(resichainslist[[1]])) {
+          resiChains[[resname]] <- coda::mcmc.list(unname(sapply(resichainslist, '[', resname)))
+        }
       }
       if (!is.null(fact)) {
         factChains$loadings <- coda::mcmc.list(factloadchainslist)

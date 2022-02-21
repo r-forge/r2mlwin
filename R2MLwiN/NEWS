@@ -1,3 +1,7 @@
+Mon Feb 21 2022
+1. Bug fixing
+   * Allow return of residual chains when more than one chain have been run
+
 Mon Aug 02 2021
 1. Changes
    * Add option to allow use of R contrast specification
