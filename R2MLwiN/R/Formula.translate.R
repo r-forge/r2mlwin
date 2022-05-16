@@ -726,7 +726,7 @@ Formula.translate <- function(Formula, D = "Normal", indata) {
     }
     if (D[[1]] == "Mixed") {
       for (i in 1:nresp) {
-        if (D[[i + 1]] == "Poisson" && is.na(D[[i + 1]][3])) {
+        if (D[[i + 1]][1] == "Poisson" && is.na(D[[i + 1]][3])) {
           myoffset <- get.offset(Formula, indata)
           if (length(myoffset$offset.label) > 0) {
             D[[i + 1]][3] <- myoffset$offset.label
