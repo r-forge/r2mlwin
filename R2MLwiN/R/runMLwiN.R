@@ -1655,7 +1655,7 @@ version:date:md5:filename:x64:trial:platform
       if (length(reset) != length(levID)) {
         stop("reset vector is wrong length")
       }
-      if (any(reset < 0 || reset > 2)) {
+      if (any(reset < 0 | reset > 2)) {
         stop("Invalid reset value")
       }
     }

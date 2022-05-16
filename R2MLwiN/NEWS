@@ -1,3 +1,7 @@
+Mon May 16 2022
+1. Bug fixing
+   * Correct use of | instead of || when comparing vectors
+
 Mon Feb 21 2022
 1. Bug fixing
    * Allow return of residual chains when more than one chain have been run
