@@ -1,3 +1,7 @@
+Fri 19 Aug 2022
+1. Bug fixing
+   * Correct intercept variable substitution for cases where it is in the random but not fixed part
+
 Mon May 16 2022
 1. Bug fixing
    * Correct use of | instead of || when comparing vectors
