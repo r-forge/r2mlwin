@@ -1438,9 +1438,15 @@ version:date:md5:filename:x64:trial:platform
       nonfp$nonfp.common[pos.cvar.one] <- gsub("^1\\.", "Intercept.", nonfp$nonfp.common[pos.cvar.one])
     }
   } else {
-    if (any(startsWith(nonfp, "1."))) {
-      needsint <- TRUE
-      nonfp <- gsub("^1.", "Intercept.", nonfp)
+    if (!is.na(nonfp[1])) {
+      if (any(startsWith(nonfp, "1."))) {
+        needsint <- TRUE
+        nonfp <- gsub("^1.", "Intercept.", nonfp)
+      }
+      if ("1" %in% nonfp) {
+        needsint <- TRUE
+        nonfp[nonfp == "1"] <- "Intercept"
+      }
     }
   }
 
