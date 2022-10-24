@@ -652,6 +652,28 @@ runMLwiN <- function(Formula, levID = NULL, D = "Normal", data = NULL, estoption
     }
   }
 
+  # Replace any variables in the predictor that are constants of one with "1"
+  subIntercept <- function(f, vars) {
+   if (length(f) > 1) { # Non-leaf
+     if (f[[1]] == "|") { # Ignore level identifier (f[[3]])
+       f[[2]] <- Recall(f[[2]], vars)
+     } else {
+       for (i in 2:length(f)) { # All other formula parts
+         f[[i]] <- Recall(f[[i]], vars)
+       }
+     }
+   } else { # Leaf node
+     if (toString(f) %in% colnames(vars)) { # Data variable
+       if (all(vars[[f]] == 1)) {
+         f <- 1
+       }
+     }
+   }
+   return(f)
+  }
+
+  Formula[[3]] <- subIntercept(Formula[[3]], indata)
+
   if (drop.levels) {
     for (var in colnames(indata)) {
       if (is.factor(indata[[var]])) {
