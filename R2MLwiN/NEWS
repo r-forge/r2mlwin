@@ -1,6 +1,7 @@
 Mon 24 Oct 2022
 1. Changes
     * Replace predictor variables with a constant value of one with "1" in the formula
+    * Update contrast handling where no intercept is specified to match standard R
 
 Fri 19 Aug 2022
 1. Bug fixing

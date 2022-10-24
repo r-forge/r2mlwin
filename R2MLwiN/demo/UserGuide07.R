@@ -34,11 +34,7 @@ covmatrix[1, 1] <- 1
 covmatrix[2, 1] <- "sexboy"
 covmatrix[3, 1] <- "sexgirl"
 
-contrasts(tutorial$sex, 2) <- contr.treatment(levels(tutorial$sex), contrasts = FALSE)
-
 (mymodel1 <- runMLwiN(normexam ~ 0 + sex + (0 + sex | student), estoptions = list(clre = covmatrix), data = tutorial))
-
-contrasts(tutorial$sex) <- NULL
 
 # 7.2 Variance functions at level 2 . . . . . . . . . . . . . . . . . . . 95
 

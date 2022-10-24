@@ -294,13 +294,12 @@ Formula.translate <- function(Formula, D = "Normal", indata) {
   get_categstr <- function(left, indata) {
     categstr0 <- NULL
     categstr1 <- NULL
-    leftsplit <- strsplit(left, "\\|")
-    for (ii in 1:length(leftsplit)) {
-      leftsplit[[ii]] <- get.terms(leftsplit[[ii]][2])
+    leftsplit <- NULL
+    for (part in strsplit(left, "\\|")) {
+      leftsplit[[part[1]]] <- gsub("\\{{1}([[:digit:]]|\\,)*\\}{1}", "", get.terms(part[2]))
     }
-    tmpcategstr <- unique(unlist(leftsplit))
-    tmpcategstr <- gsub("\\{{1}([[:digit:]]|\\,)*\\}{1}", "", tmpcategstr)
     lfcol <- sapply(indata, is.factor)
+    tmpcategstr <- unique(unlist(leftsplit))
     for (ii in 1:length(tmpcategstr)) {
       ttcategstr <- unlist(strsplit(tmpcategstr[ii], "\\:"))
       lttcateg <- ttcategstr %in% names(indata)[lfcol]
@@ -324,9 +323,17 @@ Formula.translate <- function(Formula, D = "Normal", indata) {
     
     if (ncategstr0 > 0) {
       # extend data
+      firstterm <- TRUE
       for (ii in 1:ncategstr1) {
-        f.ext <- stats::as.formula(eval(paste("~", categstr1[ii])))
-        mf.ext <- stats::model.frame(f.ext, indata, na.action = na.pass)
+        # Handle giving first factor treatment full set of dummies when there is no intercept in the fixed part
+        f.ext <- NULL
+        if (firstterm == FALSE || "1" %in% leftsplit[["0"]] || "1" %in% leftsplit[["0s"]] || "1" %in% leftsplit[["0c"]]) {
+          f.ext <- stats::as.formula(eval(paste("~", categstr1[ii])))
+        } else {
+          f.ext <- stats::as.formula(eval(paste("~ 0 + ", categstr1[ii])))
+        }
+        firstterm <- FALSE
+        mf.ext <- stats::model.frame(f.ext, indata, na.action = stats::na.pass)
         contrMat <- attr(mf.ext, "contrasts")
         mm.ext <- stats::model.matrix(f.ext, mf.ext)
         data.ext <- mm.ext[, which(attr(mm.ext, "assign") == 1), drop = FALSE]
