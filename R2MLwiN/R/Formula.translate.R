@@ -91,6 +91,8 @@ Formula.translate <- function(Formula, D = "Normal", indata) {
     xterm <- attr(Terms, "term.labels")
     fstr <- unlist(strsplit(fstr, "\\+"))
     fstr <- gsub("[[:space:]]", "", fstr)
+    fstr <- gsub("\\(", "", fstr)
+    fstr <- gsub("\\)", "", fstr)
     if (any(fstr == "1")) {
       xterm <- c("1", xterm)
     }
@@ -520,6 +522,8 @@ Formula.translate <- function(Formula, D = "Normal", indata) {
   tempfstr <- as.character(Formula)[3]
   tempfstr <- unlist(strsplit(tempfstr, "\\+"))
   tempfstr <- gsub("[[:space:]]", "", tempfstr)
+  tempfstr <- gsub("\\(", "", tempfstr)
+  tempfstr <- gsub("\\)", "", tempfstr)
   
   if (!any(D %in% c("Normal", "Multivariate Normal"))) {
     Formula <- update(Formula, ~. + (0 | l1id))

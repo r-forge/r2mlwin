@@ -1,9 +1,13 @@
-Mon 24 Oct 2022
+Tue Nov 08 2022
+1. Bug fixing
+    * Allow "1" to be recognised as the intercept in the fixed part even when it is enclosed in a bracketed expression
+
+Mon Oct 24 2022
 1. Changes
     * Replace predictor variables with a constant value of one with "1" in the formula
     * Update contrast handling where no intercept is specified to match standard R
 
-Fri 19 Aug 2022
+Fri Aug 19 2022
 1. Bug fixing
    * Correct intercept variable substitution for cases where it is in the random but not fixed part
 
