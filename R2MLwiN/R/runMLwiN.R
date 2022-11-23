@@ -2951,11 +2951,27 @@ version:date:md5:filename:x64:trial:platform
   if (length(shortID) > 1) {
     for (lev in length(shortID):2) {
       if (isTRUE(xc)) {
-        groupsize <- stats::aggregate(data.frame(count = outdata[[1]]), by = outdata[, shortID[lev], drop = FALSE], FUN = length)$count
-        compgroupsize <- stats::aggregate(data.frame(count = shortdata[[1]]), by = shortdata[, shortID[lev], drop = FALSE], FUN = length)$count
+        groupsize <- by(outdata, outdata[, shortID[lev]], nrow)
+        compgroupsize <- by(shortdata, shortdata[, shortID[lev]], nrow)
       } else {
-        groupsize <- stats::aggregate(data.frame(count = outdata[[1]]), by = outdata[, shortID[lev:length(shortID)], drop = FALSE], FUN = length)$count
-        compgroupsize <- stats::aggregate(data.frame(count = shortdata[[1]]), by = shortdata[, shortID[lev:length(shortID)], drop = FALSE], FUN = length)$count
+        test <- requireNamespace("reshape", quietly = TRUE)
+        compIDs <- shortdata[, shortID[lev:length(shortID)]]
+        if (is.factor(compIDs)) {
+            compIDs <- droplevels(compIDs)
+        }
+        if (isTRUE(test)) {
+          # If the level identifiers are factors with string labels then the following can produce the warning 'coercing
+          # argument of type 'list' to logical' from within cbind2 in the reshape package.  This is due to the call:
+          # 'all(lapply(list(...), is.numeric))' as the lapply returns a list which all doesn't like.  As the result is
+          # still correct a suppressWarnings() call is added below to prevent this being passed onto the user
+          groupsize <- as.vector(suppressWarnings(reshape::sparseby(outdata, outdata[, shortID[lev:length(shortID)]],
+                                                                    nrow, GROUPNAMES = FALSE)))
+          compgroupsize <- as.vector(suppressWarnings(reshape::sparseby(shortdata, compIDs,
+                                                                    nrow, GROUPNAMES = FALSE)))
+        } else {
+          groupsize <- stats::na.omit(as.vector(by(outdata, outdata[, shortID[lev:length(shortID)]], nrow)))
+          compgroupsize <- stats::na.omit(as.vector(by(shortdata, compIDs, nrow)))
+        }
       }
       groupinfo <- cbind(length(groupsize), min(groupsize), mean(groupsize), max(groupsize), length(compgroupsize), min(compgroupsize), mean(compgroupsize), max(compgroupsize))
       colnames(groupinfo) <- c("N", "min", "mean", "max", "N_complete", "min_complete", "mean_complete", "max_complete")
