@@ -1128,13 +1128,28 @@ version:date:md5:filename:x64:trial:platform
 3.05:Mar 2020:94fbe79fba472f00cd834e66b6f06319:mlnscript:TRUE:FALSE:bsd
 3.05:Mar 2020:ae50df14bfe1d4f1124881a5a2a85dd7:mlnscript:TRUE:FALSE:bsd
 3.05:Mar 2020:df6cfbf3d682b5b60ebaff0a3c46b1de:mlnscript:TRUE:FALSE:bsd
+3.06:Nov 2022:08584fe512873bb2ff730c667b8d0c65:mlwin.exe:TRUE:FALSE:win
+3.06:Nov 2022:0f8a54599dd428dcc623801780df28bc:mlnscript.exe:TRUE:FALSE:win
+3.06:Nov 2022:6dc3158a44807871722b28d26a7a1c07:mlwin.exe:FALSE:FALSE:win
+3.06:Nov 2022:426ebcc471f5c5c8ec304d35a5d3506b:mlnscript.exe:FALSE:FALSE:win
+3.06:Nov 2022:7c136f986836f30de80af60fe6f3cbfa:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:b09917ef69eac7f38faf40558f79cf62:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:c9983632ceb9b95af017799202255f69:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:94eb40e516e3e6916fd734a3a147519e:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:a0c8d4ce46513618e983d61248eb60cb:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:e174263b1ba2c4c03375751cae37be71:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:5570721ef194029129164244f259e847:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:4727688e068e381bc33e9757ebb84bfa:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:318a09a203265d5acab7161de49180da:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:008974270da0e0a100ba515652e00a10:mlnscript:TRUE:FALSE:mac
+3.06:Nov 2022:f9f718399c080dec7ce1595f7b8ebc48:mlnscript:TRUE:FALSE:bsd
 '
   versioninfo <- utils::read.delim(textConnection(versioninfostr), header = TRUE, sep = ":", strip.white = TRUE)
   if (isTRUE(checkversion)) {
     # Allow disabling the version check if it is slowing things down (e.g. in a simulation study)
     currentver <- versioninfo[versioninfo$md5 == digest::digest(cmd, algo = "md5", file = TRUE), ]
     if (nrow(currentver) == 0) {
-      versiontext <- "MLwiN (version: unknown or >3.05)"
+      versiontext <- "MLwiN (version: unknown or >3.06)"
     } else {
       if (currentver$version < 2.36) {
         # Block releases older than a year or so (allow 2.36 as this corresponds to the trial version)
@@ -2936,27 +2951,11 @@ version:date:md5:filename:x64:trial:platform
   if (length(shortID) > 1) {
     for (lev in length(shortID):2) {
       if (isTRUE(xc)) {
-        groupsize <- by(outdata, outdata[, shortID[lev]], nrow)
-        compgroupsize <- by(shortdata, shortdata[, shortID[lev]], nrow)
+        groupsize <- stats::aggregate(data.frame(count = outdata[[1]]), by = outdata[, shortID[lev], drop = FALSE], FUN = length)$count
+        compgroupsize <- stats::aggregate(data.frame(count = shortdata[[1]]), by = shortdata[, shortID[lev], drop = FALSE], FUN = length)$count
       } else {
-        test <- requireNamespace("reshape", quietly = TRUE)
-        compIDs <- shortdata[, shortID[lev:length(shortID)]]
-        if (is.factor(compIDs)) {
-            compIDs <- droplevels(compIDs)
-        }
-        if (isTRUE(test)) {
-          # If the level identifiers are factors with string labels then the following can produce the warning 'coercing
-          # argument of type 'list' to logical' from within cbind2 in the reshape package.  This is due to the call:
-          # 'all(lapply(list(...), is.numeric))' as the lapply returns a list which all doesn't like.  As the result is
-          # still correct a suppressWarnings() call is added below to prevent this being passed onto the user
-          groupsize <- as.vector(suppressWarnings(reshape::sparseby(outdata, outdata[, shortID[lev:length(shortID)]],
-                                                                    nrow, GROUPNAMES = FALSE)))
-          compgroupsize <- as.vector(suppressWarnings(reshape::sparseby(shortdata, compIDs,
-                                                                    nrow, GROUPNAMES = FALSE)))
-        } else {
-          groupsize <- stats::na.omit(as.vector(by(outdata, outdata[, shortID[lev:length(shortID)]], nrow)))
-          compgroupsize <- stats::na.omit(as.vector(by(shortdata, compIDs, nrow)))
-        }
+        groupsize <- stats::aggregate(data.frame(count = outdata[[1]]), by = outdata[, shortID[lev:length(shortID)], drop = FALSE], FUN = length)$count
+        compgroupsize <- stats::aggregate(data.frame(count = shortdata[[1]]), by = shortdata[, shortID[lev:length(shortID)], drop = FALSE], FUN = length)$count
       }
       groupinfo <- cbind(length(groupsize), min(groupsize), mean(groupsize), max(groupsize), length(compgroupsize), min(compgroupsize), mean(compgroupsize), max(compgroupsize))
       colnames(groupinfo) <- c("N", "min", "mean", "max", "N_complete", "min_complete", "mean_complete", "max_complete")
