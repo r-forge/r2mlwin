@@ -1128,9 +1128,9 @@ version:date:md5:filename:x64:trial:platform
 3.05:Mar 2020:94fbe79fba472f00cd834e66b6f06319:mlnscript:TRUE:FALSE:bsd
 3.05:Mar 2020:ae50df14bfe1d4f1124881a5a2a85dd7:mlnscript:TRUE:FALSE:bsd
 3.05:Mar 2020:df6cfbf3d682b5b60ebaff0a3c46b1de:mlnscript:TRUE:FALSE:bsd
-3.06:Nov 2022:08584fe512873bb2ff730c667b8d0c65:mlwin.exe:TRUE:FALSE:win
+3.06:Nov 2022:f7000807e0b7233a5b81d28fe9d87a0a:mlwin.exe:TRUE:FALSE:win
 3.06:Nov 2022:0f8a54599dd428dcc623801780df28bc:mlnscript.exe:TRUE:FALSE:win
-3.06:Nov 2022:6dc3158a44807871722b28d26a7a1c07:mlwin.exe:FALSE:FALSE:win
+3.06:Nov 2022:5bf38e0de70fa7dd40d8975d436347ae:mlwin.exe:FALSE:FALSE:win
 3.06:Nov 2022:426ebcc471f5c5c8ec304d35a5d3506b:mlnscript.exe:FALSE:FALSE:win
 3.06:Nov 2022:7c136f986836f30de80af60fe6f3cbfa:mlnscript:TRUE:FALSE:lin
 3.06:Nov 2022:b09917ef69eac7f38faf40558f79cf62:mlnscript:TRUE:FALSE:lin
