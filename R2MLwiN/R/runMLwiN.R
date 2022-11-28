@@ -1128,9 +1128,9 @@ version:date:md5:filename:x64:trial:platform
 3.05:Mar 2020:94fbe79fba472f00cd834e66b6f06319:mlnscript:TRUE:FALSE:bsd
 3.05:Mar 2020:ae50df14bfe1d4f1124881a5a2a85dd7:mlnscript:TRUE:FALSE:bsd
 3.05:Mar 2020:df6cfbf3d682b5b60ebaff0a3c46b1de:mlnscript:TRUE:FALSE:bsd
-3.06:Nov 2022:f7000807e0b7233a5b81d28fe9d87a0a:mlwin.exe:TRUE:FALSE:win
+3.06:Nov 2022:969206894a8b6321dae3e66693064103:mlwin.exe:TRUE:FALSE:win
 3.06:Nov 2022:0f8a54599dd428dcc623801780df28bc:mlnscript.exe:TRUE:FALSE:win
-3.06:Nov 2022:5bf38e0de70fa7dd40d8975d436347ae:mlwin.exe:FALSE:FALSE:win
+3.06:Nov 2022:457caa98e9104bfcb6f59078c1b8c70a:mlwin.exe:FALSE:FALSE:win
 3.06:Nov 2022:426ebcc471f5c5c8ec304d35a5d3506b:mlnscript.exe:FALSE:FALSE:win
 3.06:Nov 2022:7c136f986836f30de80af60fe6f3cbfa:mlnscript:TRUE:FALSE:lin
 3.06:Nov 2022:b09917ef69eac7f38faf40558f79cf62:mlnscript:TRUE:FALSE:lin
@@ -1141,6 +1141,8 @@ version:date:md5:filename:x64:trial:platform
 3.06:Nov 2022:5570721ef194029129164244f259e847:mlnscript:TRUE:FALSE:lin
 3.06:Nov 2022:4727688e068e381bc33e9757ebb84bfa:mlnscript:TRUE:FALSE:lin
 3.06:Nov 2022:318a09a203265d5acab7161de49180da:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:84a4dbe914d44962efc7ca9ea60e5731:mlnscript:TRUE:FALSE:lin
+3.06:Nov 2022:5ed9c7bacc1fc4f0662c02851e38ed06:mlnscript:TRUE:FALSE:lin
 3.06:Nov 2022:008974270da0e0a100ba515652e00a10:mlnscript:TRUE:FALSE:mac
 3.06:Nov 2022:f9f718399c080dec7ce1595f7b8ebc48:mlnscript:TRUE:FALSE:bsd
 '
