@@ -1150,13 +1150,29 @@ version:date:md5:filename:x64:trial:platform
 3.06:Nov 2022:f9f718399c080dec7ce1595f7b8ebc48:mlnscript:TRUE:FALSE:bsd
 3.06:Nov 2022:1b2ca999d6add4ad19ae3312964a12ee:mlnscript:TRUE:FALSE:bsd
 3.06:Nov 2022:b12ed2d51117d798a29b1a5fce884539:mlnscript:TRUE:FALSE:bsd
+3.07:Jul 2023:6a84e2ca312f5d88803cff03fb7553f2:mlwin.exe:TRUE:FALSE:win
+3.07:Jul 2023:725b90d57af126c465c62f9f8c9a0c38:mlnscript.exe:TRUE:FALSE:win
+3.07:Jul 2023:37d19e41ddd88c8a57557ac8e2933633:mlwin.exe:FALSE:FALSE:win
+3.07:Jul 2023:927c3983552fe0c1946c3c30d3fd0364:mlnscript.exe:FALSE:FALSE:win
+3.07:Jul 2023:4ff8aa54d91bf34b63fee1e6d79628c1:mlnscript:TRUE:FALSE:lin
+3.07:Jul 2023:0f29541ce9b230ac321b2115b7822db0:mlnscript:TRUE:FALSE:lin
+3.07:Jul 2023:a10ae98ff912d1bbf1c422797ccb84d6:mlnscript:TRUE:FALSE:lin
+3.07:Jul 2023:7e900e63acbb5e629eea9096d0e551d8:mlnscript:TRUE:FALSE:lin
+3.07:Jul 2023:0eae73790104ce87e43f0f9a71d05adf:mlnscript:TRUE:FALSE:lin
+3.07:Jul 2023:e8a94186f5f41a8954c605858f129b83:mlnscript:TRUE:FALSE:lin
+3.07:Jul 2023:272ace0f30d7c92c96ae5706d458ea24:mlnscript:TRUE:FALSE:lin
+3.07:Jul 2023:3f3e5ee6cd8de1341f2da629d90fb4e7:mlnscript:TRUE:FALSE:lin
+3.07:Jul 2023:050a8217d02530bc1711e98172403be9:mlnscript:TRUE:FALSE:mac
+3.07:Jul 2023:0139d12bff3f9525da73d787a363ed10:mlnscript:TRUE:FALSE:bsd
+3.07:Jul 2023:29496c0ae97643bf9ef96d03e6d80baa:mlnscript:TRUE:FALSE:bsd
+3.07:Jul 2023:e743491dd343a6f9bcffd82bd549ca0f:mlnscript:TRUE:FALSE:bsd
 '
   versioninfo <- utils::read.delim(textConnection(versioninfostr), header = TRUE, sep = ":", strip.white = TRUE)
   if (isTRUE(checkversion)) {
     # Allow disabling the version check if it is slowing things down (e.g. in a simulation study)
     currentver <- versioninfo[versioninfo$md5 == digest::digest(cmd, algo = "md5", file = TRUE), ]
     if (nrow(currentver) == 0) {
-      versiontext <- "MLwiN (version: unknown or >3.06)"
+      versiontext <- "MLwiN (version: unknown or >3.07)"
     } else {
       if (currentver$version < 2.36) {
         # Block releases older than a year or so (allow 2.36 as this corresponds to the trial version)
