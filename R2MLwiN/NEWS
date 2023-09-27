@@ -1,3 +1,7 @@
+Wed Sep 27 2023
+1. Bug fixing
+    * Correct final model in MCMC guide chapter 16 demo to match the model in the manual
+
 Tue Nov 08 2022
 1. Bug fixing
     * Allow "1" to be recognised as the intercept in the fixed part even when it is enclosed in a bracketed expression
