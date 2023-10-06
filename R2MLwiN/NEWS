@@ -1,3 +1,7 @@
+Thu Oct 5 2023
+1. Changes
+    * Use a faster MLwiN command to split the returned MCMC chains
+
 Wed Sep 27 2023
 1. Bug fixing
     * Correct final model in MCMC guide chapter 16 demo to match the model in the manual
