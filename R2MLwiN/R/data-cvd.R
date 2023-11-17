@@ -7,9 +7,10 @@
 #' myocardial infarction, etc.). This is a binary response, whether (1) or not
 #' (0) respondents have CVD condition.
 #' 
-#' The \code{data-cvd} dataset is one of the example datasets analysed in
+#' The \code{cvd} dataset is one of the example datasets analysed in
 #' Leyland and Groenewegen (2020), and provided with the
-#' multilevel-modelling software package MLwiN (Rasbash et al., 2009).
+#' multilevel-modelling software package MLwiN (Charlton et al., 2023), as
+#' \code{cvd_data}.
 #' 
 #' @docType data
 #' @format A data frame with 8804 observations on the following 9 variables:
@@ -27,8 +28,9 @@
 #' 
 #' @source
 #' 
-#' Browne, W. J. (2012) \emph{MCMC Estimation in MLwiN Version 2.26.}
-#' University of Bristol: Centre for Multilevel Modelling.
+#' Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
+#' \emph{MLwiN Version 3.08} Centre for Multilevel Modelling, University of
+#' Bristol.
 #' 
 #' Leyland A.H. (2005) Socioeconomic gradients in the prevalence of cardiovascular
 #' disease in Scotland: the roles of composition and context.
@@ -38,13 +40,32 @@
 #' In: \emph{Multilevel Modelling for Public Health and Health Services Research}.
 #' Springer, Cham. \href{https://doi.org/10.1007/978-3-030-34801-4_13}
 #' 
-#' Rasbash, J., Charlton, C., Browne, W.J., Healy, M. and Cameron, B. (2009)
-#' \emph{MLwiN Version 2.1.} Centre for Multilevel Modelling, University of
-#' Bristol.
-#' 
-#' Rasbash, J., Steele, F., Browne, W.J. and Goldstein, H. (2012) \emph{A
-#' User's Guide to MLwiN Version 2.26.} Centre for Multilevel Modelling,
-#' University of Bristol.
-#'
 #' @keywords datasets
-"cvd_data"
+#'
+#' @examples
+#'
+#' \dontrun{
+#'
+#' data(cvd, package = "R2MLwiN")
+#' 
+#' # Example taken from Leyland and Groenewegen (2020)
+#' 
+#' F1 <- logit(cvddef) ~ 1 + I(age^3) + I(age^3):I(log(age)) +
+#'   f + f:I(age^3) + f:I(age^3):I(log(age)) +
+#'   (1 | area)
+#' 
+#' (mod_MQL1 <- runMLwiN(Formula = F1,
+#'                       D = "Binomial",
+#'                       data = cvd))
+#' 
+#' (mod_PQL2 <- runMLwiN(Formula = F1,
+#'                       D = "Binomial",
+#'                       data = cvd,
+#'                       estoptions = list(
+#'                         nonlinear = c(N = 1, M = 2),
+#'                         startval = list(FP.b = mod_MQL1@FP,
+#'                                         FP.v = mod_MQL1@FP.cov,
+#'                                         RP.b = mod_MQL1@RP,
+#'                                         RP.v = mod_MQL1@RP.cov))))
+#' }
+"cvd"
