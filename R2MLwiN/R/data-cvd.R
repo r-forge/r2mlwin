@@ -15,33 +15,28 @@
 #' @docType data
 #' @format A data frame with 8804 observations on the following 9 variables:
 #' \describe{
-#' \item{list("age")}{Age.}
-#' \item{list("sex")}{Gender (factor with levels: \code{male}, \code{female}).}
-#' \item{list("sc")}{Social class (factor with levels: \code{sc_12}, \code{sc_3}, \code{sc_45}).}
-#' \item{list("cvddef")}{Self-reported cardiovascular disease (\code{0} = does not have
+#' \item{age}{Age.}
+#' \item{sex}{Gender (factor with levels: \code{male}, \code{female}).}
+#' \item{sc}{Social class (factor with levels: \code{sc_12}, \code{sc_3}, \code{sc_45}).}
+#' \item{cvddef}{Self-reported cardiovascular disease (\code{0} = does not have
 #' condition, \code{1} = has condition)}
-#' \item{list("carstair")}{Carstairs score.}
-#' \item{list("smoke")}{Smoking frequency (factor with levels: \code{smk_lite}, \code{smk_mod},
+#' \item{carstair}{Carstairs score.}
+#' \item{smoke}{Smoking frequency (factor with levels: \code{smk_lite}, \code{smk_mod},
 #' \code{smk_hvy}, \code{smk_ex}, \code{smk_nevr}).}
-#' \item{list("id")}{Respondent identifier.}
-#' \item{list("area")}{Postcode sector} }
-#' 
-#' @source
-#' 
-#' Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
+#' \item{id}{Respondent identifier.}
+#' \item{area}{Postcode sector} }
+#' @source Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
 #' \emph{MLwiN Version 3.08} Centre for Multilevel Modelling, University of
 #' Bristol.
 #' 
 #' Leyland A.H. (2005) Socioeconomic gradients in the prevalence of cardiovascular
-#' disease in Scotland: the roles of composition and context.
-#' \emph{J Epidemiol Community Health} 59:799–803
+#' disease in Scotland: the roles of composition and context. \emph{J Epidemiol
+#' Community Health} 59:799–803
 #'
 #' Leyland, A.H., Groenewegen, P.P. (2020). Untangling Context and Composition.
 #' In: \emph{Multilevel Modelling for Public Health and Health Services Research}.
-#' Springer, Cham. \href{https://doi.org/10.1007/978-3-030-34801-4_13}
-#' 
+#' Springer, Cham. \\href{https://doi.org/10.1007/978-3-030-34801-4_13}
 #' @keywords datasets
-#'
 #' @examples
 #'
 #' \dontrun{

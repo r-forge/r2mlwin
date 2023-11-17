@@ -14,39 +14,32 @@
 #' @docType data
 #' @format A data frame with 5639 observations on the following 8 variables:
 #' \describe{
-#' \item{list("county")}{County (within region) identifier. There are 54 counties, coded
+#' \item{county}{County (within region) identifier. There are 54 counties, coded
 #' from 1 to 68.}
-#' \item{list("district")}{District (within county) identifier. There are 403 districts,
+#' \item{district}{District (within county) identifier. There are 403 districts,
 #' coded 101 to 6820.}
-#' \item{list("region")}{Region identifier. There are 10 regions, coded 1 to 10.}
-#' \item{list("year")}{Year, 1979 (\code{79}) to 1992 (\code{92}).}
-#' \item{list("deaths")}{Number of deaths observed}
-#' \item{list("expected")}{Expected number of deaths, based on the 1992 national age- and
+#' \item{region}{Region identifier. There are 10 regions, coded 1 to 10.}
+#' \item{year}{Year, 1979 (\code{79}) to 1992 (\code{92}).}
+#' \item{deaths}{Number of deaths observed}
+#' \item{expected}{Expected number of deaths, based on the 1992 national age- and
 #' sex- specific mortality rates.}
-#' \item{list("smr")}{Standardised mortality ratio (observed deaths / expected deaths * 100).}
-#' \item{list("family")}{District classification into one of 6 groups as defined by the UK's
+#' \item{smr}{Standardised mortality ratio (observed deaths / expected deaths * 100).}
+#' \item{family}{District classification into one of 6 groups as defined by the UK's
 #' Office for National Statistics (factor with levels
 #' \code{Inner_London} (Inner London),
 #' \code{Rural} (Rural areas),
 #' \code{Prospering} (Prospering areas)
 #' \code{Maturer} (Maturer areas),
 #' \code{Urban} (Urban areas),
-#' \code{Mining_industrial} (Mining and industrial areas).}
-#' }
-#' 
-#' @source
-#' 
-#' Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
+#' \code{Mining_industrial} (Mining and industrial areas).} }
+#' @source Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
 #' \emph{MLwiN Version 3.08} Centre for Multilevel Modelling, University of
 #' Bristol.
 #' 
 #' Leyland, A.H., Groenewegen, P.P. (2020). Multilevel Linear Regression Using
 #' MLwiN: Mortality in England and Wales, 1979-1992. In: \emph{Multilevel
-#' Modelling for Public Health and Health Services Research}. Springer, Cham.
-#' \href{https://doi.org/10.1007/978-3-030-34801-4_11}
-#' 
+#' Modelling for Public Health and Health Services Research}. Springer, Cham. \\href{https://doi.org/10.1007/978-3-030-34801-4_11}
 #' @keywords datasets
-#'
 #' @examples
 #'
 #' \dontrun{

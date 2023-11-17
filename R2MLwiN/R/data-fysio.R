@@ -11,20 +11,20 @@
 #' @docType data
 #' @format A data frame with 16700 observations on the following 14 variables:
 #' \describe{
-#' \item{list("gpid")}{GP identifier.}
-#' \item{list("patid")}{Patient identifier.}
-#' \item{list("patage")}{Patient age in years.}
-#' \item{list("pagegrp")}{Patient age group, with ages grouped into 7 categories (ordered factor with levels
+#' \item{gpid}{GP identifier.}
+#' \item{patid}{Patient identifier.}
+#' \item{patage}{Patient age in years.}
+#' \item{pagegrp}{Patient age group, with ages grouped into 7 categories (ordered factor with levels
 #' \code{page<35}, \code{35<=page<45}, \code{45<=page<55}, \code{55<=page<65}, \code{65<=page<75},
 #' \code{75<=page<85}, \code{85<=page}).}
-#' \item{list("patsex")}{Patient gender (factor with levels \code{female}, \code{male}.}
-#' \item{list("patinsur")}{Patient insurance indicator (factor with levels
+#' \item{patsex}{Patient gender (factor with levels \code{female}, \code{male}.}
+#' \item{patinsur}{Patient insurance indicator (factor with levels
 #' \code{privateins} (privately insured), \code{publicins} (publically insured)).}
-#' \item{list("patedu")}{Patient education level (ordered factor with levels \code{none}
+#' \item{patedu}{Patient education level (ordered factor with levels \code{none}
 #' (no formal education), \code{primary} (primary education), \code{secondary}
 #' (secondary and lower/middle vocational education), \code{higher} (higher vocational
 #' and university education)).}
-#' \item{list("diag")}{Primary diagnosis resulting from care episodes
+#' \item{diag}{Primary diagnosis resulting from care episodes
 #' (factor with levels
 #' \code{diag_1} (symptoms/complaints neck),
 #' \code{diag_2} (symptoms/complaints back),
@@ -39,34 +39,27 @@
 #' \code{diag_11} (impediments of the shoulder),
 #' \code{diag_12} (epicondylitis lateralis),
 #' \code{diag_13} (tendinitis/synovitis)).}
-#' \item{list("gpexper")}{GP experience (number of years working as a GP divided by ten).}
-#' \item{list("gpworkload")}{GP workload (number of contacts in the 3-month registration period divided by 1000).}
-#' \item{list("practype")}{Practice type (factor with levels \code{prac_solo},
+#' \item{gpexper}{GP experience (number of years working as a GP divided by ten).}
+#' \item{gpworkload}{GP workload (number of contacts in the 3-month registration period divided by 1000).}
+#' \item{practype}{Practice type (factor with levels \code{prac_solo},
 #' \code{prac_duo}, \code{prac_group}, \code{healthcentre}).}
-#' \item{list("location")}{Practice location (factor with levels \code{rural},
+#' \item{location}{Practice location (factor with levels \code{rural},
 #' \code{suburban}, \code{urban}, \code{bigcity}).}
-#' \item{list("gpphysifr")}{Indicator of whether the GP has physiotherapists in their
+#' \item{gpphysifr}{Indicator of whether the GP has physiotherapists in their
 #' social network (factor with levels \code{no}, \code{yes}).}
-#' \item{list("referral")}{Indicator of whether the patient was referred to a
-#' physiotherapist (factor with levels \code{no}, \code{yes}).}
-#' }
-#' 
-#' @source
-#' 
-#' Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
+#' \item{referral}{Indicator of whether the patient was referred to a
+#' physiotherapist (factor with levels \code{no}, \code{yes}).} }
+#' @source Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
 #' \emph{MLwiN Version 3.08} Centre for Multilevel Modelling, University of
 #' Bristol.
 #' 
 #' Leyland, A.H., Groenewegen, P.P. (2020). Multilevel Logistic Regression Using
 #' MLwiN: Referrals to Physiotherapy. In: \emph{Multilevel Modelling for Public
-#' Health and Health Services Research}. Springer, Cham.
-#' \href{https://doi.org/10.1007/978-3-030-34801-4_12}
+#' Health and Health Services Research}. Springer, Cham. \\href{https://doi.org/10.1007/978-3-030-34801-4_12}
 #' 
 #' Van der Velden, K. (1999). \emph{General practice at work: its contribution to
 #' epidemiology and health policy}. NIVEL, PhD thesis Erasmus University, Utrecht
-#' 
 #' @keywords datasets
-#' 
 #' @examples
 #'
 #' \dontrun{
