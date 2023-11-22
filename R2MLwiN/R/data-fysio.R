@@ -26,23 +26,23 @@
 #' and university education)).}
 #' \item{diag}{Primary diagnosis resulting from care episodes
 #' (factor with levels
-#' \code{diag_1} (symptoms/complaints neck),
-#' \code{diag_2} (symptoms/complaints back),
-#' \code{diag_3} (myalgia/fibrositis),
-#' \code{diag_4} (symptoms of multiple muscles),
-#' \code{diag_5} (disabilities related to the locomotive system),
-#' \code{diag_6} (impediments of the cervical spine),
-#' \code{diag_7} (arthrosis cervical spine),
-#' \code{diag_8} (lumbago),
-#' \code{diag_9} (ischialgia),
-#' \code{diag_10} (hernia nuclei pulposi),
-#' \code{diag_11} (impediments of the shoulder),
-#' \code{diag_12} (epicondylitis lateralis),
-#' \code{diag_13} (tendinitis/synovitis)).}
+#' \code{1} (symptoms/complaints neck),
+#' \code{2} (symptoms/complaints back),
+#' \code{3} (myalgia/fibrositis),
+#' \code{4} (symptoms of multiple muscles),
+#' \code{5} (disabilities related to the locomotive system),
+#' \code{6} (impediments of the cervical spine),
+#' \code{7} (arthrosis cervical spine),
+#' \code{8} (lumbago),
+#' \code{9} (ischialgia),
+#' \code{10} (hernia nuclei pulposi),
+#' \code{11} (impediments of the shoulder),
+#' \code{12} (epicondylitis lateralis),
+#' \code{13} (tendinitis/synovitis)).}
 #' \item{gpexper}{GP experience (number of years working as a GP divided by ten).}
 #' \item{gpworkload}{GP workload (number of contacts in the 3-month registration period divided by 1000).}
-#' \item{practype}{Practice type (factor with levels \code{prac_solo},
-#' \code{prac_duo}, \code{prac_group}, \code{healthcentre}).}
+#' \item{practype}{Practice type (factor with levels \code{solo},
+#' \code{duo}, \code{group}, \code{healthcentre}).}
 #' \item{location}{Practice location (factor with levels \code{rural},
 #' \code{suburban}, \code{urban}, \code{bigcity}).}
 #' \item{gpphysifr}{Indicator of whether the GP has physiotherapists in their
