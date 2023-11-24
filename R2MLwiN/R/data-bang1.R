@@ -58,6 +58,8 @@
 #' 
 #' data(bang1, package = "R2MLwiN")
 #' 
+#' bang1$denomb <- 1
+#' 
 #' (mymodel <- runMLwiN(logit(use, denomb) ~ 1 + age + lc + urban + (1 + urban | district),
 #'   D = "Binomial", estoptions = list(EstM = 1), data = bang1))
 #' 
