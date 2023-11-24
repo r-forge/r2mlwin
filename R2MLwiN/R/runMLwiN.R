@@ -689,8 +689,8 @@ runMLwiN <- function(Formula, levID = NULL, D = "Normal", data = NULL, estoption
 
   for (var in colnames(indata)) {
     if (!(var %in% respvars)) {
-      unordcontr <- options("contrasts")$contrasts["unordered"]
-      ordcontr <- options("contrasts")$contrasts["ordered"]
+      unordcontr <- options("contrasts")$contrasts[1]
+      ordcontr <- options("contrasts")$contrasts[2]
       resetcontr <- FALSE
       if (is.factor(indata[[var]])) {
         if (!is.ordered(indata[[var]]) && unordcontr != "contr.treatment") {

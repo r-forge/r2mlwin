@@ -64,6 +64,15 @@
 #'
 #' \dontrun{
 #' 
+#' my_contrasts <- options("contrasts")$contrasts
+#' 
+#' # Change contrasts if wish to avoid warning that, by default, specified
+#' # contrasts for ordered predictors will be ignored by runMLwiN. To enable
+#' # this set allowcontrast to TRUE (this will be the default in future package
+#' # releases).
+#' options(contrasts = c(unordered = "contr.treatment",
+#'                       ordered = "contr.treatment"))
+#' 
 #' data(fysio, package = "R2MLwiN")
 #' 
 #' # Example taken from Leyland and Groenewegen (2020)
@@ -85,5 +94,8 @@
 #'                                                         RP.v = mod_MQL1@RP.cov)),
 #'                       D = "Binomial",
 #'                       data = fysio))
+#'                       
+#' # Change contrasts back to pre-existing:
+#' options(contrasts = my_contrasts)
 #' }
 "fysio"
