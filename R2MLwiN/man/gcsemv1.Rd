@@ -6,13 +6,15 @@
 \title{Pupils' marks from GCSE exams (UK, 1989).}
 \format{
 A data frame with 1905 observations on the following variables:
-\describe{ \item{list("school")}{School identification (level 2 unit).}
-\item{list("student")}{Student identification (level 1 unit).}
-\item{list("female")}{Gender: a factor with levels \code{Female} and
-\code{Male}.} \item{list("agemths")}{Age in months.}
-\item{list("written")}{Score on the written component.}
-\item{list("csework")}{Score on the coursework component.}
-\item{list("cons")}{Constant (= 1).} }
+\describe{
+\item{school}{School identification (level 2 unit).}
+\item{student}{Student identification (level 1 unit).}
+\item{female}{Gender: a factor with levels \code{Female} and \code{Male}.}
+\item{agemths}{Age in months.}
+\item{written}{Score on the written component.}
+\item{csework}{Score on the coursework component.}
+\item{cons}{Constant (= 1).}
+}
 }
 \source{
 Rasbash, J., Charlton, C., Browne, W.J., Healy, M. and Cameron, B.

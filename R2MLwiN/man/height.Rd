@@ -6,8 +6,9 @@
 \title{Height data.}
 \format{
 A data frame with 100 observations on the following variable:
-\describe{ \item{list("height")}{Heights of 100 adult males measured in
-centimetres.} }
+\describe{
+\item{height}{Heights of 100 adult males measured in centimetres.}
+}
 }
 \source{
 Rasbash, J., Charlton, C., Browne, W.J., Healy, M. and Cameron, B.

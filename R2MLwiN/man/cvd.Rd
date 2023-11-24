@@ -10,12 +10,14 @@ A data frame with 8804 observations on the following 9 variables:
 \describe{
 \item{age}{Age.}
 \item{sex}{Gender (factor with levels: \code{male}, \code{female}).}
-\item{sc}{Social class (factor with levels: \code{sc_12}, \code{sc_3}, \code{sc_45}).}
+\item{sc}{Social class (factor with levels: \code{12} (social class 1 and 2),
+\code{3} (social class 3), \code{45} (social class 4 and 5)).}
 \item{cvddef}{Self-reported cardiovascular disease (\code{0} = does not have
 condition, \code{1} = has condition)}
 \item{carstair}{Carstairs score.}
-\item{smoke}{Smoking frequency (factor with levels: \code{smk_lite}, \code{smk_mod},
-\code{smk_hvy}, \code{smk_ex}, \code{smk_nevr}).}
+\item{smoke}{Smoking frequency (factor with levels: \code{lite} (<10 a day),
+\code{mod} (10-19 a day), \code{hvy} (20+ a day), \code{ex} (ex-smoker),
+\code{nevr} (never smoked)).}
 \item{id}{Respondent identifier.}
 \item{area}{Postcode sector} }
 }
@@ -57,7 +59,7 @@ data(cvd, package = "R2MLwiN")
 # Example taken from Leyland and Groenewegen (2020)
 
 F1 <- logit(cvddef) ~ 1 + I(age^3) + I(age^3):I(log(age)) +
-  f + f:I(age^3) + f:I(age^3):I(log(age)) +
+  sex + sex:I(age^3) + sex:I(age^3):I(log(age)) +
   (1 | area)
 
 (mod_MQL1 <- runMLwiN(Formula = F1,

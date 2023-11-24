@@ -12,24 +12,29 @@
 #' 
 #' @docType data
 #' @format A data frame with 1934 observations on the following 11 variables:
-#' \describe{ \item{list("woman")}{Identifying code for each woman (level 1
-#' unit).} \item{list("district")}{Identifying code for each district (level 2
-#' unit).} \item{list("use")}{Contraceptive use status at time of survey; a
-#' factor with levels \code{Not_using} and \code{Using}.}
-#' \item{list("lc")}{Number of living children at time of survey; an ordered
-#' factor with levels \code{None}, \code{One_child}, \code{Two_children},
-#' \code{Three_plus}.} \item{list("age")}{Age of woman at time of survey (in
-#' years), centred on sample mean of 30 years.} \item{list("urban")}{Type of
-#' region of residence; a factor with levels \code{Rural} and \code{Urban}.}
-#' \item{list("educ")}{Woman's level of education; an ordered factor with
-#' levels \code{None}, \code{Lower_primary}, \code{Upper_primary},
-#' \code{Secondary_and_above}.} \item{list("hindu")}{Woman's religion; a factor
-#' with levels \code{Muslim} and \code{Hindu}.}
-#' \item{list("d_illit")}{Proportion of women in district who are literate.}
-#' \item{list("d_pray")}{Proportion of Muslim women in district who pray every
-#' day (a measure of religiosity).} \item{list("cons")}{A column of ones. If
-#' included as an explanatory variable in a regression model (e.g. in MLwiN),
-#' its coefficient is the intercept.} }
+#' \describe{
+#' \item{woman}{Identifying code for each woman (level 1 unit).}
+#' \item{district}{Identifying code for each district (level 2 unit).}
+#' \item{use}{Contraceptive use status at time of survey; a factor with levels
+#' \code{Not_using} and \code{Using}.}
+#' \item{lc}{Number of living children at time of survey; an ordered factor with
+#' levels \code{None}, \code{One_child}, \code{Two_children},
+#' \code{Three_plus}.}
+#' \item{age}{Age of woman at time of survey (in years), centred on sample mean
+#' of 30 years.}
+#' \item{urban}{Type of region of residence; a factor with levels \code{Rural}
+#' and \code{Urban}.}
+#' \item{educ}{Woman's level of education; an ordered factor with levels
+#' \code{None}, \code{Lower_primary}, \code{Upper_primary},
+#' \code{Secondary_and_above}.}
+#' \item{hindu}{Woman's religion; a factor with levels \code{Muslim} and
+#' \code{Hindu}.}
+#' \item{d_illit}{Proportion of women in district who are literate.}
+#' \item{d_pray}{Proportion of Muslim women in district who pray every day (a
+#' measure of religiosity).}
+#' \item{cons}{A column of ones. If included as an explanatory variable in a
+#' regression model (e.g. in MLwiN), its coefficient is the intercept.}
+#' }
 #' @seealso See \code{mlmRev} package for an alternative format of the same
 #' dataset, with fewer variables.
 #' @source Amin, S., Diamond, I., Steele, F. (1997) Contraception and

@@ -6,12 +6,14 @@
 \title{Pupils' marks from GCSE exams (UK, 1989); complete cases only.}
 \format{
 A data frame with 1523 observations on the following 6 variables:
-\describe{ \item{list("school")}{Identifying code for each school (level 2
-unit).} \item{list("student")}{Identifying code for each pupil (level 1
-unit).} \item{list("female")}{Gender of pupil: a factor with levels
-\code{Male} and \code{Female}.} \item{list("written")}{Exam score.}
-\item{list("csework")}{Coursework score.} \item{list("cons")}{Constant
-(=1).} }
+\describe{
+\item{school}{Identifying code for each school (level 2 unit).}
+\item{student}{Identifying code for each pupil (level 1 unit).}
+\item{female}{Gender of pupil: a factor with levels \code{Male} and
+\code{Female}.}
+\item{written}{Exam score.}
+\item{csework}{Coursework score.}
+\item{cons}{Constant (=1).} }
 }
 \source{
 Browne, W. J. (2012) \emph{MCMC Estimation in MLwiN Version 2.26.}

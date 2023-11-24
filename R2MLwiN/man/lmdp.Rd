@@ -61,9 +61,6 @@ data(lmdp, package = "R2MLwiN")
 
 lmdp$ID <- seq(1:nrow(lmdp))
 
-F1 <- smr ~ 1 + I(year - 79) +
-  (1 | district) + (1 | ID)
-
 (mod_1 <- runMLwiN(smr ~ 1 + I(year - 79) +
                       (1 | district) + (1 | ID),
                    data = lmdp))
