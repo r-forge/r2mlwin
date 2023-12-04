@@ -72,8 +72,35 @@ data(bang, package = "R2MLwiN")
 
 bang$use4 <- relevel(bang$use4, 4)
 
-(mymodel <- runMLwiN(log(use4, cons) ~ 1 + lc + (1 | district), 
-  D = "Unordered Multinomial", estoptions = list(EstM = 1, nonlinear = c(1, 2)), data = bang))
+# Change contrasts if wish to avoid warning indicating that, by default,
+# specified contrasts for ordered predictors will be ignored by runMLwiN
+# (they will be fitted as "contr.treatment" regardless of this setting). To
+# enable specified contrasts, set allowcontrast to TRUE (this will be the
+# default in future package releases).
+my_contrasts <- options("contrasts")$contrasts
+options(contrasts = c(unordered = "contr.treatment",
+                      ordered = "contr.treatment"))
+
+# As an alternative to changing contrasts, can instead use C() to specify
+# contrasts for ordered predictors in formula object, e.g.:
+
+# F1 <- log(use4, cons) ~ 1 + C(lc, "contr.treatment") + (1 | district)
+
+# (mymodel <- runMLwiN(Formula = F1, 
+#                      D = "Unordered Multinomial",
+#                      estoptions = list(EstM = 1, nonlinear = c(1, 2)),
+#                      data = bang,
+#                      allowcontrast = TRUE))
+
+F1 <- log(use4, cons) ~ 1 + lc + (1 | district)
+
+(mymodel <- runMLwiN(Formula = F1, 
+                     D = "Unordered Multinomial",
+                     estoptions = list(EstM = 1, nonlinear = c(1, 2)),
+                     data = bang))
+
+# Change contrasts back to pre-existing:
+options(contrasts = my_contrasts)
 
 }
 

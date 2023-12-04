@@ -80,9 +80,10 @@ data(fysio, package = "R2MLwiN")
 # Example taken from Leyland and Groenewegen (2020)
 
 # Change contrasts if wish to avoid warning indicating that, by default,
-# specified contrasts for ordered predictors will be ignored by runMLwiN. To
-# enable this set allowcontrast to TRUE (this will be the default in future
-# package releases).
+# specified contrasts for ordered predictors will be ignored by runMLwiN
+# (they will be fitted as "contr.treatment" regardless of this setting). To
+# enable specified contrasts, set allowcontrast to TRUE (this will be the
+# default in future package releases).
 my_contrasts <- options("contrasts")$contrasts
 options(contrasts = c(unordered = "contr.treatment",
                       ordered = "contr.treatment"))

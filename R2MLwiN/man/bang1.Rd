@@ -69,8 +69,36 @@ data(bang1, package = "R2MLwiN")
 
 bang1$denomb <- 1
 
-(mymodel <- runMLwiN(logit(use, denomb) ~ 1 + age + lc + urban + (1 + urban | district),
-  D = "Binomial", estoptions = list(EstM = 1), data = bang1))
+# Change contrasts if wish to avoid warning indicating that, by default,
+# specified contrasts for ordered predictors will be ignored by runMLwiN
+# (they will be fitted as "contr.treatment" regardless of this setting). To
+# enable specified contrasts, set allowcontrast to TRUE (this will be the
+# default in future package releases).
+my_contrasts <- options("contrasts")$contrasts
+options(contrasts = c(unordered = "contr.treatment",
+                      ordered = "contr.treatment"))
+
+# As an alternative to changing contrasts, can instead use C() to specify
+# contrasts for ordered predictors in formula object, e.g.:
+
+# F1 <- logit(use, denomb) ~ 1 + age + C(lc, "contr.treatment") + urban +
+#   (1 + urban | district)
+
+# (mymodel <- runMLwiN(Formula = F1,
+#                      D = "Binomial",
+#                      estoptions = list(EstM = 1),
+#                      data = bang1,
+#                      allowcontrast = TRUE))
+
+F1 <- logit(use, denomb) ~ 1 + age + lc + urban + (1 + urban | district)
+
+(mymodel <- runMLwiN(Formula = F1,
+                     D = "Binomial",
+                     estoptions = list(EstM = 1),
+                     data = bang1))
+
+# Change contrasts back to pre-existing:
+options(contrasts = my_contrasts)
 
 }
 
