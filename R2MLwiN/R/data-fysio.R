@@ -64,18 +64,30 @@
 #'
 #' \dontrun{
 #' 
-#' my_contrasts <- options("contrasts")$contrasts
-#' 
-#' # Change contrasts if wish to avoid warning that, by default, specified
-#' # contrasts for ordered predictors will be ignored by runMLwiN. To enable
-#' # this set allowcontrast to TRUE (this will be the default in future package
-#' # releases).
-#' options(contrasts = c(unordered = "contr.treatment",
-#'                       ordered = "contr.treatment"))
-#' 
 #' data(fysio, package = "R2MLwiN")
 #' 
 #' # Example taken from Leyland and Groenewegen (2020)
+#' 
+#' # Change contrasts if wish to avoid warning indicating that, by default,
+#' # specified contrasts for ordered predictors will be ignored by runMLwiN. To
+#' # enable this set allowcontrast to TRUE (this will be the default in future
+#' # package releases).
+#' my_contrasts <- options("contrasts")$contrasts
+#' options(contrasts = c(unordered = "contr.treatment",
+#'                       ordered = "contr.treatment"))
+#' 
+#' # As an alternative to changing contrasts, can instead use C() to specify
+#' # contrasts for ordered predictors in formula object, e.g.:
+#'
+#' # F1 <- logit(referral) ~ 1 + C(pagegrp, "contr.treatment") + patsex + diag +
+#' #   C(patedu, "contr.treatment") + patinsur + gpexper + gpworkload +
+#' #   practype + location + gpphysifr +
+#' #   (1 | gpid)
+#' # 
+#' # (mod_MQL1 <- runMLwiN(Formula = F1,
+#' #                       D = "Binomial",
+#' #                       data = fysio,
+#' #                       allowcontrast = TRUE))
 #' 
 #' F1 <- logit(referral) ~ 1 + pagegrp + patsex + diag +
 #'   patedu + patinsur + gpexper + gpworkload +
