@@ -1,3 +1,21 @@
+Tue Dec 5 2023
+1. Changes
+    * Explicitly set ordered contrasts to "treatment" in all examples that use them
+
+Mon Dec 4 2023
+1. Changes
+    * Add example demonstrating the C() function to specify contasts to the fysio data example
+    * Add documentation for examples that use ordered factors to explain how these are converted to contrasts
+
+Fri Nov 24 2023
+1. Bug fixing
+    * Handle unlabelled default contrast options
+    * Correct error in "bang1" data example to create required variable before use
+
+Fri Nov 17 2023
+1. Changes
+    * Add new dataset which have recently been included with MLwiN
+
 Thu Oct 5 2023
 1. Changes
     * Use a faster MLwiN command to split the returned MCMC chains
