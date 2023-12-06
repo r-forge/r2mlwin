@@ -17,7 +17,7 @@
 #' \item{pagegrp}{Patient age group, with ages grouped into 7 categories (ordered factor with levels
 #' \code{page<35}, \code{35<=page<45}, \code{45<=page<55}, \code{55<=page<65}, \code{65<=page<75},
 #' \code{75<=page<85}, \code{85<=page}).}
-#' \item{patsex}{Patient gender (factor with levels \code{female}, \code{male}.}
+#' \item{patsex}{Patient gender (factor with levels \code{female}, \code{male}).}
 #' \item{patinsur}{Patient insurance indicator (factor with levels
 #' \code{privateins} (privately insured), \code{publicins} (publically insured)).}
 #' \item{patedu}{Patient education level (ordered factor with levels \code{none}
