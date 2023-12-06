@@ -30,5 +30,8 @@ Add option to omit chains, or allow their removal, to save on storage space need
 Store and display information regarding the Priors in the MCMC output
 Model output can be too wide when using it in a document, investigate whether this can be reduced
 
+Documentation/Demos:
+Add demos for examples in "Leyland and Groenewegen (2020)"
+
 Correctly handle predictor variables contrasts, especially for "ordered" factor variables.
 Note that examples in data-fysio.R, data-bang.R and data-bang1.R (all of which use ordered factors as predictors) will need to be updated when allowcontrast = TRUE becomes the default in future releases, as well as the following demos: MCMCGuide10.R, MCMCGuide12.R, MCMCGuide23.R, MCMCGuide25.R, UserGuide09.R, UserGuide10.R.
