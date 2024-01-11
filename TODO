@@ -14,6 +14,7 @@ normexam ~ standlrt + (1 | student) + sex
 
 Model Specification Checks:
 (IGLS) Check lower levels are non-equal standardised weights if standardised weights are specified
+(IGLS) Check that an error is returned if multiple membership is specified
 
 Additional Functionality:
 Automatic calculation of VPC?
