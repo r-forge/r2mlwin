@@ -22,8 +22,8 @@ condition, \code{1} = has condition)}
 \item{area}{Postcode sector} }
 }
 \source{
-Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
-\emph{MLwiN Version 3.08} Centre for Multilevel Modelling, University of
+Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2024)
+\emph{MLwiN Version 3.09} Centre for Multilevel Modelling, University of
 Bristol.
 
 Leyland A.H. (2005) Socioeconomic gradients in the prevalence of cardiovascular
@@ -47,7 +47,7 @@ myocardial infarction, etc.). This is a binary response, whether (1) or not
 \details{
 The \code{cvd} dataset is one of the example datasets analysed in
 Leyland and Groenewegen (2020), and provided with the
-multilevel-modelling software package MLwiN (Charlton et al., 2023), as
+multilevel-modelling software package MLwiN (Charlton et al., 2024), as
 \code{cvd_data}.
 }
 \examples{

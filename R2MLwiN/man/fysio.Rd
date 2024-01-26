@@ -48,7 +48,7 @@ social network (factor with levels \code{no}, \code{yes}).}
 physiotherapist (factor with levels \code{no}, \code{yes}).} }
 }
 \source{
-Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
+Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2024)
 \emph{MLwiN Version 3.08} Centre for Multilevel Modelling, University of
 Bristol.
 
@@ -69,7 +69,7 @@ practice (Van der Velden 1999).
 \details{
 The \code{fysio} dataset is one of the example datasets analysed in
 Leyland and Groenewegen (2020), and provided with the
-multilevel-modelling software package MLwiN (Charlton et al., 2023).
+multilevel-modelling software package MLwiN (Charlton et al., 2024).
 }
 \examples{
 

@@ -6,7 +6,7 @@
 #' 
 #' The \code{fysio} dataset is one of the example datasets analysed in
 #' Leyland and Groenewegen (2020), and provided with the
-#' multilevel-modelling software package MLwiN (Charlton et al., 2023).
+#' multilevel-modelling software package MLwiN (Charlton et al., 2024).
 #' 
 #' @docType data
 #' @format A data frame with 16700 observations on the following 14 variables:
@@ -49,7 +49,7 @@
 #' social network (factor with levels \code{no}, \code{yes}).}
 #' \item{referral}{Indicator of whether the patient was referred to a
 #' physiotherapist (factor with levels \code{no}, \code{yes}).} }
-#' @source Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
+#' @source Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2024)
 #' \emph{MLwiN Version 3.08} Centre for Multilevel Modelling, University of
 #' Bristol.
 #' 

@@ -9,7 +9,7 @@
 #' 
 #' The \code{lmdp} dataset is one of the example datasets analysed in
 #' Leyland and Groenewegen (2020), and provided with the
-#' multilevel-modelling software package MLwiN (Charlton et al., 2023).
+#' multilevel-modelling software package MLwiN (Charlton et al., 2024).
 #' 
 #' @docType data
 #' @format A data frame with 5639 observations on the following 8 variables:
@@ -32,7 +32,7 @@
 #' \code{Maturer} (Maturer areas),
 #' \code{Urban} (Urban areas),
 #' \code{Mining_industrial} (Mining and industrial areas).} }
-#' @source Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2023)
+#' @source Charlton, C., Rasbash, J., Browne, W.J., Healy, M. and Cameron, B. (2024)
 #' \emph{MLwiN Version 3.08} Centre for Multilevel Modelling, University of
 #' Bristol.
 #' 
