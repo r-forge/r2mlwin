@@ -55,7 +55,7 @@
 #' 
 #' Leyland, A.H., Groenewegen, P.P. (2020). Multilevel Logistic Regression Using
 #' MLwiN: Referrals to Physiotherapy. In: \emph{Multilevel Modelling for Public
-#' Health and Health Services Research}. Springer, Cham. \\href{https://doi.org/10.1007/978-3-030-34801-4_12}
+#' Health and Health Services Research}. Springer, Cham. \doi{10.1007/978-3-030-34801-4_12}
 #' 
 #' Van der Velden, K. (1999). \emph{General practice at work: its contribution to
 #' epidemiology and health policy}. NIVEL, PhD thesis Erasmus University, Utrecht

@@ -1,6 +1,6 @@
 Package: R2MLwiN
 Version: 0.8-9
-Date: 2024-01-26
+Date: 2024-01-29
 Title: Running 'MLwiN' from Within R
 Authors@R: c(person("Zhengzheng", "Zhang", role = c("aut", "cre"),email =
     "zhengzheng236@gmail.com"), person("Chris", "Charlton",  role = "aut"),
@@ -38,3 +38,4 @@ URL: http://www.bristol.ac.uk/cmm/software/r2mlwin/,https://r-forge.r-project.or
 SystemRequirements: MLwiN, (OpenBUGS, WinBUGS optional)
 Encoding: UTF-8
 RoxygenNote: 7.3.0
+LazyData: true
