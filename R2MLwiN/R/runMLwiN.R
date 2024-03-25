@@ -3111,9 +3111,14 @@ version:date:md5:filename:x64:trial:platform
     clre[1, ] <- as.numeric(clre[1, ]) + 1
   }
 
+  wscheck <- trimws(colnames(outdata)) != colnames(outdata)
+  if (any(wscheck)) {
+    stop("variable names(s) ", paste0(colnames(outdata)[wscheck], collapse=", "), " have a whitespace prefix or suffix, which is not supported by MLwiN")
+  }
+
   dups <- duplicated(tolower(colnames(outdata)))
   if (any(dups)) {
-    stop(paste("variables name(s)", paste(colnames(outdata)[dups], collapse=","), "are duplicates when ignoring case"))
+    stop(paste("variables name(s) ", paste0(colnames(outdata)[dups], collapse=", "), " are duplicates when ignoring case"))
   }
 
   long2shortname <- sapply(colnames(outdata), digest::digest, algo="xxhash64", serialize = FALSE)
