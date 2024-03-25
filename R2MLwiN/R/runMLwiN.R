@@ -1203,13 +1203,30 @@ version:date:md5:filename:x64:trial:platform
 3.09:Jan 2024:138f311fecf2c3780d690dbcb2887c10:mlnscript:TRUE:FALSE:bsd
 3.09:Jan 2024:3130f5aa03ef44c9edd6962e65528f46:mlnscript:TRUE:FALSE:bsd
 3.09:Jan 2024:121fdb9e4f3af68d4979504f0b79b0e1:mlnscript:TRUE:FALSE:bsd
+3.10:Mar 2024:a64ec46665479e3b5d7544d3a304c78a:mlwin.exe:TRUE:FALSE:win
+3.10:Mar 2024:64640df88e1033fe79df22175437220f:mlnscript.exe:TRUE:FALSE:win
+3.10:Mar 2024:db4fb1184699eb5594b47af5a2278c6f:mlwin.exe:FALSE:FALSE:win
+3.10:Mar 2024:841bbf06491bf5655ec8e2342d1a38dd:mlnscript.exe:FALSE:FALSE:win
+3.10:Mar 2024:a613d6b8368c339e2dfafb9a30bbe851:mlnscript:TRUE:FALSE:lin
+3.10:Mar 2024:d4fbb38eb69f94b7555a1eb8860cf15a:mlnscript:TRUE:FALSE:lin
+3.10:Mar 2024:a5997030effa5023bba4db829d1c3bc5:mlnscript:TRUE:FALSE:lin
+3.10:Mar 2024:aaba4d89af214b66910b3c72dbeacdf7:mlnscript:TRUE:FALSE:lin
+3.10:Mar 2024:e26374179a9f701f3d4622975361ca75:mlnscript:TRUE:FALSE:lin
+3.10:Mar 2024:95f80b3f70a5f36d22de88e9cb2e3779:mlnscript:TRUE:FALSE:lin
+3.10:Mar 2024:d571e4e74ca05ea3c0e8f71ac1258413:mlnscript:TRUE:FALSE:lin
+3.10:Mar 2024:08a29d510349f4d50c142113a0f23bb1:mlnscript:TRUE:FALSE:lin
+3.10:Mar 2024:ec3c6b175672b8d6997aedbd1570a997:mlnscript:TRUE:FALSE:lin
+3.10:Mar 2024:51f5ef01e0acb8e92ed5c6076d872032:mlnscript:TRUE:FALSE:mac
+3.10:Mar 2024:3355aa054b8d5bbe223e7c837ae1e7d8:mlnscript:TRUE:FALSE:bsd
+3.10:Mar 2024:eb45bfa0d4cbf6cefeb1490c06450d76:mlnscript:TRUE:FALSE:bsd
+3.10:Mar 2024:0e696f5cc4d55d593cb6b7cda448dac1:mlnscript:TRUE:FALSE:bsd
 '
   versioninfo <- utils::read.delim(textConnection(versioninfostr), header = TRUE, sep = ":", strip.white = TRUE)
   if (isTRUE(checkversion)) {
     # Allow disabling the version check if it is slowing things down (e.g. in a simulation study)
     currentver <- versioninfo[versioninfo$md5 == digest::digest(cmd, algo = "md5", file = TRUE), ]
     if (nrow(currentver) == 0) {
-      versiontext <- "MLwiN (version: unknown or >3.09)"
+      versiontext <- "MLwiN (version: unknown or >3.10)"
     } else {
       if (currentver$version < 2.36) {
         # Block releases older than a year or so (allow 2.36 as this corresponds to the trial version)
