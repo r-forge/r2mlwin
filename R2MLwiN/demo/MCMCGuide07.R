@@ -43,15 +43,15 @@ sixway(mymodel1[, "beta[2]", drop = FALSE])
 
 ## Download the model, initial, data files
 modelfile <- paste0(tempdir(), "/tutorial1_model.txt")
-download.file("http://www.bristol.ac.uk/cmm/media/r2mlwin/tutorial1_model.txt", modelfile, method = "auto")
+download.file("https://www.bristol.ac.uk/cmm/media/r2mlwin/tutorial1_model.txt", modelfile, method = "auto")
 file.show(modelfile)
 
 initfile <- paste0(tempdir(), "/tutorial1_inits.txt")
-download.file("http://www.bristol.ac.uk/cmm/media/r2mlwin/tutorial1_inits.txt", initfile, method = "auto")
+download.file("https://www.bristol.ac.uk/cmm/media/r2mlwin/tutorial1_inits.txt", initfile, method = "auto")
 file.show(initfile)
 
 datafile <- paste0(tempdir(), "/tutorial1_data.txt")
-download.file("http://www.bristol.ac.uk/cmm/media/r2mlwin/tutorial1_data.txt", datafile, method = "auto")
+download.file("https://www.bristol.ac.uk/cmm/media/r2mlwin/tutorial1_data.txt", datafile, method = "auto")
 
 bugEst <- paste0(tempdir(), "/tutorial1_log.txt")
 

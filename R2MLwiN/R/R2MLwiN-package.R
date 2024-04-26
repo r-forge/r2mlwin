@@ -81,7 +81,7 @@
 #' ## Rasbash et al (2012) A User's Guide to MLwiN Version 2.26 and
 #' ## Browne, W.J. (2012) MCMC estimation in MLwiN Version 2.26.
 #' ## The MLwiN manuals are available online, see:
-#' ## http://www.bristol.ac.uk/cmm/software/mlwin/download/manuals.html
+#' ## https://www.bristol.ac.uk/cmm/software/mlwin/download/manuals.html
 #'
 #' ## For a list of demo titles
 #' demo(package = 'R2MLwiN')

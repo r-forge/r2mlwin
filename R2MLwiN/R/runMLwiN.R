@@ -564,7 +564,7 @@
 #' ## Rasbash et al (2012) A User's Guide to MLwiN Version 2.26 and
 #' ## Browne, W.J. (2012) MCMC estimation in MLwiN Version 2.26.
 #' ## The MLwiN manuals are available online, see:
-#' ## http://www.bristol.ac.uk/cmm/software/mlwin/download/manuals.html
+#' ## https://www.bristol.ac.uk/cmm/software/mlwin/download/manuals.html
 #'
 #' \dontrun{
 #' library(R2MLwiN)
@@ -1231,7 +1231,7 @@ version:date:md5:filename:x64:trial:platform
     } else {
       if (currentver$version < 2.36) {
         # Block releases older than a year or so (allow 2.36 as this corresponds to the trial version)
-        stop("The current version of MLwiN is too old, please update it from http://www.bris.ac.uk/cmm/software/mlwin/download/upgrades.html")
+        stop("The current version of MLwiN is too old, please update it from https://www.bris.ac.uk/cmm/software/mlwin/download/upgrades.html")
       }
       versiontext <- paste0("MLwiN (version: ", currentver$version, ")")
     }
