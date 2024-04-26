@@ -36,7 +36,7 @@ forestry.}
 \item{weight7}{Seventh neighbours' weights.}
 \item{weight8}{Eighth neighbours' weights.}
 \item{weight9}{Ninth neighbours' weights.}
-\item{weight10)}{Tenth neightbours' weights.}
+\item{weight10}{Tenth neightbours' weights.}
 \item{weight11}{Eleventh neightbours' weights.}
 \item{wcar1}{First neighbours' CAR weights.}
 \item{wcar2}{Second neighbours' CAR weights.}

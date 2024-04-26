@@ -80,7 +80,7 @@ disable via \code{FALSE} e.g. if slowing execution time down (for example
 in a simulation).}
 
 \item{allowcontrast}{If \code{TRUE}, factor variables will follow the R
-behaviour when creating contrast variables. If code {FALSE} (default) factor
+behaviour when creating contrast variables. If \code{FALSE} (default) factor
 variables will be converted into a series of zero/one dummies.}
 
 \item{indata}{A \code{data.frame} object containing the data to be modelled.
@@ -586,7 +586,7 @@ Otherwise (i.e. \code{OpenBugs = FALSE}, the default) WinBUGS is used.
 ## Rasbash et al (2012) A User's Guide to MLwiN Version 2.26 and
 ## Browne, W.J. (2012) MCMC estimation in MLwiN Version 2.26.
 ## The MLwiN manuals are available online, see:
-## http://www.bristol.ac.uk/cmm/software/mlwin/download/manuals.html
+## https://www.bristol.ac.uk/cmm/software/mlwin/download/manuals.html
 
 \dontrun{
 library(R2MLwiN)

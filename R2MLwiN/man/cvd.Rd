@@ -32,7 +32,7 @@ Community Health} 59:799–803
 
 Leyland, A.H., Groenewegen, P.P. (2020). Untangling Context and Composition.
 In: \emph{Multilevel Modelling for Public Health and Health Services Research}.
-Springer, Cham. \\href{https://doi.org/10.1007/978-3-030-34801-4_13}
+Springer, Cham. \doi{10.1007/978-3-030-34801-4_13}
 }
 \usage{
 cvd

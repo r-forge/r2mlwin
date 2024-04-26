@@ -34,7 +34,7 @@ Bristol.
 
 Leyland, A.H., Groenewegen, P.P. (2020). Multilevel Linear Regression Using
 MLwiN: Mortality in England and Wales, 1979-1992. In: \emph{Multilevel
-Modelling for Public Health and Health Services Research}. Springer, Cham. \\href{https://doi.org/10.1007/978-3-030-34801-4_11}
+Modelling for Public Health and Health Services Research}. Springer, Cham. \doi{10.1007/978-3-030-34801-4_11}
 }
 \usage{
 lmdp
