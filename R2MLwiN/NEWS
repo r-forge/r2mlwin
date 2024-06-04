@@ -1,3 +1,9 @@
+Tue Jun 4 2024
+1. Changes
+    * Switch to using R2OpenBUGS package if OpenBUGS is selected as the estimation engine as brugs can no longer
+      be installed on Windows due to Rtools no longer including a 32-bit compiler
+    * All parameters to be monitored must now be specified when calling the mlwin2bugs function
+
 Tue Dec 5 2023
 1. Changes
     * Explicitly set ordered contrasts to "treatment" in all examples that use them

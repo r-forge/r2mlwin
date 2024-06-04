@@ -139,7 +139,6 @@
 ## usethis namespace: start
 #' @import methods
 #' @import doParallel foreach parallel
-#' @importFrom R2WinBUGS bugs
 #' @importFrom coda mcmc mcmc.list as.mcmc.list effectiveSize raftery.diag thin is.mcmc
 #' @importFrom lattice xyplot qqmath Rows trellis.par.get panel.xyplot panel.grid panel.abline panel.segments
 #' @importFrom foreign read.dta write.dta

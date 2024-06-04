@@ -56,15 +56,15 @@ download.file("https://www.bristol.ac.uk/cmm/media/r2mlwin/tutorial1_data.txt", 
 bugEst <- paste0(tempdir(), "/tutorial1_log.txt")
 
 
-chains.bugs1 <- mlwin2bugs(D = "t", levID = c("school", "student"), datafile, initfile, modelfile, bugEst, fact = NULL, 
-  addmore = c("sigma2", "df"), n.chains = 1, n.iter = 5500, n.burnin = 500, n.thin = 1, debug = TRUE, bugsWorkingDir = tempdir(), 
+chains.bugs1 <- mlwin2bugs(datafile, initfile, modelfile, parameters = c("beta", "sigma2", "u2", "sigma2.u2", "df"),
+  n.chains = 1, n.iter = 5500, n.burnin = 500, n.thin = 1, debug = TRUE, bugsWorkingDir = tempdir(), 
   OpenBugs = TRUE)
 ## Close winbugs manually
 summary(chains.bugs1)
 sixway(chains.bugs1[, "df", drop = FALSE])
 
-chains.bugs2 <- mlwin2bugs(D = "t", levID = c("school", "student"), datafile, initfile, modelfile, bugEst, fact = NULL, 
-  addmore = c("sigma2", "df"), n.chains = 1, n.iter = 12000, n.burnin = 2000, n.thin = 1, debug = TRUE, bugsWorkingDir = tempdir(), 
+chains.bugs2 <- mlwin2bugs(datafile, initfile, modelfile, parameters = c("beta", "sigma2", "u2", "sigma2.u2", "df"),
+  n.chains = 1, n.iter = 12000, n.burnin = 2000, n.thin = 1, debug = TRUE, bugsWorkingDir = tempdir(), 
   OpenBugs = TRUE)
 ## Close winbugs manually
 summary(chains.bugs2)

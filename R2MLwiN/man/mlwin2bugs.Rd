@@ -6,20 +6,16 @@
 WinBUGS/OpenBUGS.}
 \usage{
 mlwin2bugs(
-  D,
-  levID,
   datafile,
   initfiles,
   modelfile,
-  bugEst,
-  fact,
-  addmore,
-  n.chains,
-  n.iter,
-  n.burnin,
-  n.thin,
+  parameters = NULL,
+  n.chains = 1,
+  n.iter = 5500,
+  n.burnin = 500,
+  n.thin = 1,
   debug = FALSE,
-  bugs.directory = bugs.directory,
+  bugs.directory = NULL,
   bugsWorkingDir = tempdir(),
   OpenBugs = FALSE,
   cleanBugsWorkingDir = FALSE,
@@ -27,10 +23,6 @@ mlwin2bugs(
 )
 }
 \arguments{
-\item{D}{A vector specifying the type of distribution used in the model.}
-
-\item{levID}{A character (vector) specifying the level ID(s).}
-
 \item{datafile}{A file name where the BUGS data file will be saved in
 .txt format.}
 
@@ -40,13 +32,7 @@ be saved in .txt format.}
 \item{modelfile}{A file name where the BUGS model will be saved in .txt
 format.}
 
-\item{bugEst}{A file name where the estimates from BUGS will be stored in
-.txt format.}
-
-\item{fact}{A list of objects used to specify factor analysis. See `Details'
-below.}
-
-\item{addmore}{A vector of strings specifying additional coefficients to be
+\item{parameters}{A vector of strings specifying coefficients to be
 monitored.}
 
 \item{n.chains}{The number of chains to be monitored.}
@@ -82,30 +68,6 @@ Returns an \code{\link[coda]{mcmc}} object.
 This function allows R to call WinBUGS using the output files from MLwiN.
 This function uses functionalities in the \code{\link[R2WinBUGS]{R2WinBUGS-package}}
 package.
-}
-\details{
-A list of objects to specify factor analysis, as used in the
-argument \code{fact}:
-\itemize{
-\item \code{nfact}: specifies the number of factors;
-\item \code{lev.fact}: Specifies the level/classification for the random part of
-the factor for each factor;
-\item \code{nfactcor}: specifies the number of
-correlated factors;
-\item \code{factcor}: a vector specifying the correlated
-factors: the first element corresponds to the first factor number, the
-second to the second factor number, the third element corresponds to the
-starting value for the covariance and the fourth element to whether this
-covariance is constrained
-(\code{1}) or not (\code{0}). If more than one pair of factors is correlated,
-then repeat this sequence for each pair.
-\item \code{loading}: a matrix specifying the
-starting values for the factor loadings and the starting value of the factor
-variance. Each row corresponds to a factor.
-\item \code{constr}: a matrix
-specifying indicators of whether the factor loadings and the factor variance
-are constrained (\code{1}) or not (\code{0}).
-}
 }
 \seealso{
 \code{\link{runMLwiN}},\code{\link[R2WinBUGS]{bugs}}

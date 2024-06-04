@@ -3614,29 +3614,58 @@ version:date:md5:filename:x64:trial:platform
     nlev <- length(levID)
   }
 
-  if (show.file)
+  if (show.file) {
     file.show(macrofile)
+  }
+
   if ((!is.null(BUGO)) && !(D[1] == "Mixed")) {
     if (show.file)
       file.show(modelfile[1])
     n.iter <- iterations + burnin
-    addmore <- NULL
+
+    parameters <- "beta"
+    if (D[1] == "Normal") {
+      parameters <- c(parameters, "sigma2")
+    }
+
+    if (length(rp) > 1) {
+      for (ii in 2:length(rp)) {
+        if (length(rp[[paste0("rp",  ii)]]) > 0) {
+          parameters <- c(parameters, paste0("u", ii), paste0("sigma2.u", ii))
+        }
+      }
+    }
+
+    if (D[1] == "Multivariate Normal" || D[1] == "Multinomial" || D[1] == "Mixed") {
+      if (!is.null(fact)) {
+        nfact <- fact$nfact
+        loadname <- NULL
+        sigma2.fact.name = factname=rep(0, nfact)
+        for (i in 1:nfact) {
+          loadname <- c(loadname,sapply(1:(ncol(fact$loading)-1), function(x) paste("load",i,".",x,sep="")))
+          factname[i] <- paste("fact", i, sep="")
+          sigma2.fact.name[i] <- paste("sigma2.fact",i,sep="")
+        }
+        parameters <- c(parameters, loadname, factname, sigma2.fact.name)
+      }
+    }
+
     if (EstM == 1) {
       if (!is.null(car)) {
-        addmore <- c(addmore, "carmean")
+        parameters <- c(parameters, "carmean")
       }
       if (is.matrix(mcmcOptions$paex)) {
         if (sum(mcmcOptions$paex[, 2]) > 0) {
           vx <- sapply(2:nlev, function(x) paste("v", x, sep = ""))
           sigma2v <- sapply(2:nlev, function(x) paste("sigma2.v", x, sep = ""))
-          addmore <- c(addmore, vx, sigma2v)
+          parameters <- c(parameters, vx, sigma2v)
         }
       } else {
         if (is.vector(mcmcOptions$paex) && length(mcmcOptions$paex) == 2) {
           if (mcmcOptions$paex[2] > 0) {
             vx <- sapply(2:nlev, function(x) paste("v", x, sep = ""))
             sigma2v <- sapply(2:nlev, function(x) paste("sigma2.v", x, sep = ""))
-            addmore <- c(addmore, vx, sigma2v)
+            parameters <- c(parameters, vx, sigma2v)
           }
         }
       }
@@ -3655,14 +3684,19 @@ version:date:md5:filename:x64:trial:platform
       n.chains <- 1
     }
     bugs.seed <- BUGO["seed"]
-    bugs.directory <- BUGO["bugs.directory"]
     if (is.na(bugs.seed)) {
       bugs.seed <- NULL
+    }
+    bugs.directory <- BUGO["bugs.directory"]
+    if (is.na(bugs.directory)) {
+      bugs.directory <- NULL
     }
     if (!OpenBugs && is.na(bugs.directory)) {
       stop("Need to specify path to the WinBUGS executable.")
     }
-    chains.bugs.mcmc <- mlwin2bugs(D, levID, datafile[1], initfile, modelfile[1], bugEst, fact, addmore, n.chains = n.chains,
+
+    chains.bugs.mcmc <- mlwin2bugs(datafile = datafile[1], initfiles = initfile, modelfile = modelfile[1], 
+                                   parameters = parameters, n.chains = n.chains,
                                    n.iter = n.iter, n.burnin = burnin, n.thin = thinning, debug = debug, 
                                    bugs.directory = bugs.directory, bugsWorkingDir = workdir,
                                    OpenBugs = OpenBugs, cleanBugsWorkingDir = clean.files, seed = bugs.seed)

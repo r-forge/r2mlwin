@@ -5,19 +5,13 @@
 #' This function uses functionalities in the \code{\link[R2WinBUGS]{R2WinBUGS-package}}
 #' package.
 #' 
-#' @param D A vector specifying the type of distribution used in the model.
-#' @param levID A character (vector) specifying the level ID(s).
 #' @param datafile A file name where the BUGS data file will be saved in
 #' .txt format.
 #' @param initfiles A list of file names where the BUGS initial values will
 #' be saved in .txt format.
 #' @param modelfile A file name where the BUGS model will be saved in .txt
 #' format.
-#' @param bugEst A file name where the estimates from BUGS will be stored in
-#' .txt format.
-#' @param fact A list of objects used to specify factor analysis. See `Details'
-#' below.
-#' @param addmore A vector of strings specifying additional coefficients to be
+#' @param parameters A vector of strings specifying coefficients to be
 #' monitored.
 #' @param n.chains The number of chains to be monitored.
 #' @param n.iter The number of iterations for each chain
@@ -36,30 +30,6 @@
 #' removed from the \code{bugsWorkingDir}; defaults to \code{FALSE}.
 #' @param seed An integer specifying the random seed.
 #'
-#' @details
-#' A list of objects to specify factor analysis, as used in the
-#' argument \code{fact}:
-#' \itemize{
-#' \item \code{nfact}: specifies the number of factors;
-#' \item \code{lev.fact}: Specifies the level/classification for the random part of
-#' the factor for each factor;
-#' \item \code{nfactcor}: specifies the number of
-#' correlated factors;
-#' \item \code{factcor}: a vector specifying the correlated
-#' factors: the first element corresponds to the first factor number, the
-#' second to the second factor number, the third element corresponds to the
-#' starting value for the covariance and the fourth element to whether this
-#' covariance is constrained
-#' (\code{1}) or not (\code{0}). If more than one pair of factors is correlated,
-#' then repeat this sequence for each pair.
-#' \item \code{loading}: a matrix specifying the
-#' starting values for the factor loadings and the starting value of the factor
-#' variance. Each row corresponds to a factor.
-#' \item \code{constr}: a matrix
-#' specifying indicators of whether the factor loadings and the factor variance
-#' are constrained (\code{1}) or not (\code{0}).
-#' }
-#'
 #' @return Returns an \code{\link[coda]{mcmc}} object.
 #'
 #' @author Zhang, Z., Charlton, C.M.J., Parker, R.M.A., Leckie, G., and Browne,
@@ -67,48 +37,37 @@
 #'
 #' @seealso \code{\link{runMLwiN}},\code{\link[R2WinBUGS]{bugs}}
 #' @export
-mlwin2bugs <- function(D,levID, datafile, initfiles, modelfile, bugEst, fact, addmore, n.chains, n.iter, n.burnin, n.thin, debug=FALSE, 
-                       bugs.directory=bugs.directory, bugsWorkingDir=tempdir(), OpenBugs = FALSE, cleanBugsWorkingDir = FALSE, seed = NULL){
-
-  
-  nlev= length(levID)
-  parameters = "beta"
-  if (D[1]=="Normal") {
-    parameters = c(parameters, "sigma2")
-  }
-  if (D[1]=="Multivariate Normal"||D[1]=="Multinomial"||D[1]=="Mixed"){
-    ux = sapply(3:nlev, function(x) paste("u",x,sep=""))
-    sigma2u = sapply(2:nlev, function(x) paste("sigma2.u",x,sep=""))
-    if (!is.null(fact)){
-      nfact = fact$nfact
-      loadname = NULL
-      sigma2.fact.name = factname=rep(0,nfact)
-      for (i in 1:nfact){
-        loadname = c(loadname,sapply(1:(ncol(fact$loading)-1), function(x) paste("load",i,".",x,sep="")))
-        factname[i] = paste("fact",i,sep="")
-        sigma2.fact.name[i] = paste("sigma2.fact",i,sep="")
-      }
-      parameters = c(parameters, ux, sigma2u, loadname, factname, sigma2.fact.name)
-    }else{
-      parameters = c(parameters, ux, sigma2u)
-    }
-  }else{
-    ux = sapply(2:nlev, function(x) paste("u",x,sep=""))
-    sigma2u = sapply(2:nlev, function(x) paste("sigma2.u",x,sep=""))
-    parameters = c(parameters, ux, sigma2u)
-  }
-  if (!is.null(addmore)) parameters=c(parameters,addmore)
+mlwin2bugs <- function(datafile, initfiles, modelfile, parameters = NULL,
+                       n.chains = 1, n.iter = 5500, n.burnin = 500, n.thin = 1, 
+                       debug = FALSE, bugs.directory = NULL, bugsWorkingDir = tempdir(),
+                       OpenBugs = FALSE, cleanBugsWorkingDir = FALSE, seed = NULL){
 
   program <- "OpenBUGS"
   if (!OpenBugs) {
-      program <- "WinBUGS"
+    if (requireNamespace("R2WinBUGS") == FALSE) {
+      stop("Package R2WinBUGS is required to use this function")
+    }
+    chain.bugs <- R2WinBUGS::bugs(data = datafile, inits = initfiles,
+                               parameters.to.save = parameters, model.file = modelfile, 
+                               n.chains = n.chains, n.iter = n.iter, n.burnin = n.burnin, n.thin = n.thin,
+                               debug = debug, DIC = TRUE, codaPkg = FALSE,
+                               program = program, working.directory = bugsWorkingDir, clearWD = cleanBugsWorkingDir,
+                               bugs.directory = bugs.directory, bugs.seed = seed)
+  } else {
+    if (requireNamespace("R2OpenBUGS") == FALSE) {
+      stop("Package R2OpenBUGS is required to use this function")
+    }
+    if (is.null(seed)) {
+      seed <- 1
+    }
+    chain.bugs <- R2OpenBUGS::bugs(data = datafile, inits = initfiles,
+                               parameters.to.save = parameters, n.iter = n.iter, model.file = modelfile, 
+                               n.chains = n.chains, n.burnin = n.burnin, n.thin = n.thin,
+                               debug = debug, DIC = TRUE, codaPkg = FALSE,
+                               OpenBUGS.pgm = bugs.directory, working.directory = bugsWorkingDir, clearWD = cleanBugsWorkingDir,
+                               bugs.seed = seed)
   }
-  chain.bugs <- R2WinBUGS::bugs(data = datafile, inits = initfiles,
-                             parameters.to.save = parameters, model.file = modelfile, 
-                             n.chains = n.chains, n.iter = n.iter, n.burnin = n.burnin, n.thin = n.thin,
-                             debug = debug, DIC = TRUE, codaPkg = FALSE,
-                             program = program, working.directory = bugsWorkingDir, clearWD = cleanBugsWorkingDir,
-                             bugs.directory = bugs.directory, bugs.seed = seed)
+
   chains.bugs.mcmc <- coda::as.mcmc.list(chain.bugs)
 
   chains.bugs.mcmc

@@ -1,6 +1,6 @@
 Package: R2MLwiN
-Version: 0.8-9
-Date: 2024-01-29
+Version: 0.8-10
+Date: 2024-06-04
 Title: Running 'MLwiN' from Within R
 Authors@R: c(person("Zhengzheng", "Zhang", role = c("aut", "cre"),email =
     "zhengzheng236@gmail.com"), person("Chris", "Charlton",  role = "aut"),
@@ -14,7 +14,6 @@ Imports:
     stats4,
     Matrix,
     foreign (>= 0.8-46),
-    R2WinBUGS,
     digest (>= 0.6.5),
     texreg,
     foreach,
@@ -30,7 +29,9 @@ Suggests:
     car,
     lmtest,
     mitools,
-    reshape
+    reshape,
+    R2WinBUGS,
+    R2OpenBUGS
 Description: An R command interface to the 'MLwiN' multilevel
     modelling software package.
 License: GPL (>= 2)
