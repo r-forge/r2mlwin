@@ -1223,13 +1223,31 @@ version:date:md5:filename:x64:trial:platform
 3.10:Mar 2024:eb45bfa0d4cbf6cefeb1490c06450d76:mlnscript:TRUE:FALSE:bsd
 3.10:Mar 2024:0e696f5cc4d55d593cb6b7cda448dac1:mlnscript:TRUE:FALSE:bsd
 3.10:Mar 2024:286c5318973a97a82ae125e70c91e856:mlnscript:TRUE:FALSE:bsd
+3.11:Jun 2024:20d038e2139c572bb40a029cdb66862f:mlwin.exe:TRUE:FALSE:win
+3.11:Jun 2024:2d26cefa181fa3d1cf5f65d7d0b78ec1:mlnscript.exe:TRUE:FALSE:win
+3.11:Jun 2024:ca87206ee7df907c65bda1411e19e56c:mlwin.exe:FALSE:FALSE:win
+3.11:Jun 2024:da5719c3b94fe93fbd1cb486f10aad5b:mlnscript.exe:FALSE:FALSE:win
+3.11:Jun 2024:4a5217a42b6e525c28002845ace52ea5:mlnscript:TRUE:FALSE:lin
+3.11:Jun 2024:c4de12f4c712fdb8312b1af553e25205:mlnscript:TRUE:FALSE:lin
+3.11:Jun 2024:b65253343ebabd9a9083835c088d8947:mlnscript:TRUE:FALSE:lin
+3.11:Jun 2024:6cb728cfa96ea3152e37ee7037efa2ac:mlnscript:TRUE:FALSE:lin
+3.11:Jun 2024:6b964dceaf7274bda82089ae05170b1e:mlnscript:TRUE:FALSE:lin
+3.11:Jun 2024:7ce6233a22cae4bd246e3e550646b97d:mlnscript:TRUE:FALSE:lin
+3.11:Jun 2024:1e7896df48607c53d24f8980f9859b76:mlnscript:TRUE:FALSE:lin
+3.11:Jun 2024:a11272761645147653d3544c9a377211:mlnscript:TRUE:FALSE:lin
+3.11:Jun 2024:f6efa10cd7684ce0abe5060b1703b52d:mlnscript:TRUE:FALSE:lin
+3.11:Jun 2024:c148e571d42bdee2a5256174575b25e3:mlnscript:TRUE:FALSE:mac
+3.11:Jun 2024:1d1ec75c76ce7137b8cb3491c2ff7eef:mlnscript:TRUE:FALSE:bsd
+3.11:Jun 2024:4739792f8238cd34f802849f3a1904d8:mlnscript:TRUE:FALSE:bsd
+3.11:Jun 2024:76ee424b51bd58926c44f90c4c451cd3:mlnscript:TRUE:FALSE:bsd
+3.11:Jun 2024:1b98893661302e0b852bb6b3508e9d09:mlnscript:TRUE:FALSE:bsd
 '
   versioninfo <- utils::read.delim(textConnection(versioninfostr), header = TRUE, sep = ":", strip.white = TRUE)
   if (isTRUE(checkversion)) {
     # Allow disabling the version check if it is slowing things down (e.g. in a simulation study)
     currentver <- versioninfo[versioninfo$md5 == digest::digest(cmd, algo = "md5", file = TRUE), ]
     if (nrow(currentver) == 0) {
-      versiontext <- "MLwiN (version: unknown or >3.10)"
+      versiontext <- "MLwiN (version: unknown or >3.11)"
     } else {
       if (currentver$version < 2.36) {
         # Block releases older than a year or so (allow 2.36 as this corresponds to the trial version)
