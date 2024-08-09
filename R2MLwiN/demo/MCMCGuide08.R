@@ -67,7 +67,6 @@ simu <- function(i) {
          quantiles=cbind(quantile25, quantile975))
 }
 
-RNGkind("L'Ecuyer-CMRG")
 set.seed(1)
 if (!require(doParallel)) {
   warning("doParallel library is not installed, simulations will be run in series")
@@ -77,6 +76,12 @@ if (!require(doParallel)) {
 } else {
   cl <- makeCluster(detectCores(logical = FALSE))
   registerDoParallel(cl)
+  if (require(doRNG)) {
+    # Use doRNG package to make random number draws reproducible
+    registerDoRNG(1)
+  } else {
+    warning("doRNG library is not installed, simulations will not match between runs")
+  }
   r <- foreach(i=1:ns, .packages="R2MLwiN") %dopar% {
     simu(i)
   }

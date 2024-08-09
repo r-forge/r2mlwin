@@ -19,6 +19,7 @@ Imports:
     foreach,
     parallel,
     doParallel,
+    doRNG,
     coda (>= 0.16-1),
     lattice,
     memisc,
@@ -38,5 +39,5 @@ License: GPL (>= 2)
 URL: http://www.bristol.ac.uk/cmm/software/r2mlwin/,https://r-forge.r-project.org/projects/r2mlwin/,http://www.bristol.ac.uk/cmm/software/mlwin/
 SystemRequirements: MLwiN, (OpenBUGS, WinBUGS optional)
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 LazyData: true
