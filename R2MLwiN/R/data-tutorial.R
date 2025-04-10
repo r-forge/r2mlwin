@@ -85,7 +85,7 @@
 #' # Example modelling complex level 1 variance
 #' # fit log of precision at level 1 as a function of predictors
 #' (standlrtC1V_MCMC <- runMLwiN(normexam ~ 
-#'   1 + standlrt + (school | 1 + standlrt) + (1 + standlrt | student),
+#'   1 + standlrt + (1 + standlrt | school) + (1 + standlrt | student),
 #'   estoptions = list(EstM = 1, mcmcMeth = list(lclo = 1)),
 #'   data = tutorial))
 #' 
