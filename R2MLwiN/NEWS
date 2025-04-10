@@ -1,3 +1,7 @@
+Thu Apr 10 2025
+1. Bug fixing
+    * Correct syntax in example provided for the tutorial dataset
+
 Tue Jun 4 2024
 1. Changes
     * Switch to using R2OpenBUGS package if OpenBUGS is selected as the estimation engine as brugs can no longer
