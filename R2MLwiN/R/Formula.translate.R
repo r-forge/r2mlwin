@@ -77,6 +77,55 @@
 #'
 Formula.translate <- function(Formula, D = "Normal", indata) {
   
+  get.levels <- function(f) {
+    if (length(f) == 3) { # Binary Operator
+      op <- f[[1]]
+      left <- f[[2]]
+      right <- f[[3]]
+      if (op == "|") {
+        if (length(right) == 1) {
+          return(deparse(right))
+        }
+        else {
+          stop(paste0(right, "is not a valid level identifier"))
+        }
+      }
+      return(c(get.levels(left), get.levels(right)))
+    }
+
+    if (length(f) == 2) { # Unary Operator
+      op <- f[[1]]
+      right <- f[[2]]
+      return(get.levels(right))
+    }
+
+    if (length(f) == 1) { # Symbol
+      return(NULL)
+    }
+  }
+  
+  get.leveleqns <- function(f) {
+    if (length(f) == 3) { # Binary operator
+      op <- f[[1]]
+      left <- f[[2]]
+      right <- f[[3]]
+      if (op == "|") {
+        return(deparse(f))
+      }
+      return(c(get.leveleqns(left), get.leveleqns(right)))
+    }
+
+    if (length(f) == 2) { # Unary operator
+      op <- f[[1]]
+      right <- f[[2]]
+      return(get.leveleqns(right))
+    }
+
+    if (length(f) == 1) { # Symbol
+      return(NULL)
+    }
+  }
+  
   get.terms <- function(fstr) {
     if (is.na(fstr)) {
       return(fstr)
@@ -524,6 +573,11 @@ Formula.translate <- function(Formula, D = "Normal", indata) {
   tempfstr <- gsub("[[:space:]]", "", tempfstr)
   tempfstr <- gsub("\\(", "", tempfstr)
   tempfstr <- gsub("\\)", "", tempfstr)
+  
+  leveqns <- get.leveleqns(Formula)
+  if (length(leveqns) != length(unique(leveqns))) {
+    stop("Cannot specify the same equation for more than one level, please rename some variables")
+  }
   
   if (!any(D %in% c("Normal", "Multivariate Normal"))) {
     Formula <- update(Formula, ~. + (0 | l1id))

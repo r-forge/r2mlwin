@@ -1,3 +1,8 @@
+Wed Jul 30 2025
+1. Bug fixing
+    * R will remove duplicate terms in the model formula, so give an error message if this would occur
+    * Update final CAR model example to avoid duplicate terms
+
 Thu Apr 10 2025
 1. Bug fixing
     * Correct syntax in example provided for the tutorial dataset

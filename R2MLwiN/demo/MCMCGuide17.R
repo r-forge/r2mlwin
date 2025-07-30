@@ -65,7 +65,10 @@ mymodel <- runMLwiN(log(obs) ~ 0 + perc_aff + offset(offs) + (1 | area) + (0 | a
 summary(mymodel)
 # 17.7 Including exchangeable random effects . . . . . . . . . . . . . . 259
 
-(mymodel <- runMLwiN(log(obs) ~ 0 + perc_aff + offset(offs) + (1 | area) + (1 | area), D = "Poisson", estoptions = list(car = list(list(carvar = list("neigh1",
+# R will remove duplicate terms in the formula, so create a copy of area with a different name
+lips1$areahigh <- lips1$area
+
+(mymodel <- runMLwiN(log(obs) ~ 0 + perc_aff + offset(offs) + (1 | area) + (1 | areahigh), D = "Poisson", estoptions = list(car = list(list(carvar = list("neigh1",
   "neigh2", "neigh3", "neigh4", "neigh5", "neigh6", "neigh7", "neigh8", "neigh9", "neigh10", "neigh11"), weights = list("wcar1",
   "wcar2", "wcar3", "wcar4", "wcar5", "wcar6", "wcar7", "wcar8", "wcar9", "wcar10", "wcar11")), NA, NA), EstM = 1,
   mcmcMeth = list(iterations = 50000)), data = lips1))
