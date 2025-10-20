@@ -1300,13 +1300,49 @@ version:date:md5:filename:x64:trial:platform
 3.14:Jun 2025:2747b9a6a0eb500456081815bd9196f5:mlnscript:TRUE:FALSE:bsd
 3.14:Jun 2025:4ddc12eb21be022b9444e6e3a1cba25d:mlnscript:TRUE:FALSE:bsd
 3.14:Jun 2025:7301d034b1430c99ca45714dd7d357e1:mlnscript:TRUE:FALSE:bsd
+3.15:Oct 2025:240cb8db39f1a66ab8dab08323823858:mlwin.exe:TRUE:FALSE:win
+3.15:Oct 2025:d47d8f7fc5396c001f9cc86c72bd119d:mlnscript.exe:TRUE:FALSE:win
+3.15:Oct 2025:c35becc046a45737638caea20c049096:mlwin.exe:FALSE:FALSE:win
+3.15:Oct 2025:0402aadf707ec13c3130f9196d83f242:mlnscript.exe:FALSE:FALSE:win
+3.15:Oct 2025:954cd4828795a9c10ac94421dc8e2943:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:616a32a806997be8065444c1655a7ea6:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:11f4ffa483e886e47f6c6f0f8b7b9475:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:7161a9fcf02c7ea701688c7ff1d770c8:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:8a3a0a52031a61cea0c51f03bb73cf32:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:159ffb7fa007b82686431feee3c1e6dd:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:8c8e07253eb3f1f6e5a6be7d7709454f:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:8aa9480b4e4e1c0e06af2a9f2f8bc97d:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:ca48d185ea589da0477c5590bd101c63:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:11ec78420f9ff049c51ef6f4e2fcfe7c:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:86e4b66ee413b710b43ddd14cf223b26:mlnscript:TRUE:FALSE:lin
+3.15:Oct 2025:922c855ab2776ea50a60853fa20340f9:mlnscript:TRUE:FALSE:mac
+3.15:Oct 2025:93c5cb3b3e9c9515a903da6d58ba7bff:mlnscript:TRUE:FALSE:bsd
+3.15:Oct 2025:73476d49c67042593a423486c6360270:mlnscript:TRUE:FALSE:bsd
+3.16:Oct 2025:c6d0f5127b4bcfde91b88682a3b68933:mlwin.exe:TRUE:FALSE:win
+3.16:Oct 2025:5f8c0bf9d3a958b718dd75cf746959d3:mlnscript.exe:TRUE:FALSE:win
+3.16:Oct 2025:7a1d5d85629b72078b343df103dd0912:mlwin.exe:FALSE:FALSE:win
+3.16:Oct 2025:29d304537e84912f98d3f3c37f4085c5:mlnscript.exe:FALSE:FALSE:win
+3.16:Oct 2025:1290fcf206478a8feeaad6fc435e2061:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:3f7573c9d4d8b2c3b3c146c019bfded9:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:6da432b4179e20b2217df3b66aa1e943:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:04f2b52ce22e3a6f06e19bef6e84d8ce:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:d01c2e6eac1abc14e9157331c7c832ad:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:3d16899319cef0864b88e47d6a0d19f8:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:5e63f3186c0ec18ad0f971c0153e028c:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:99d557a031db8f2bc625f0a6376caf2b:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:ca48d185ea589da0477c5590bd101c63:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:4c41a68e73f905ecd992e02dfe643fef:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:ca3b9022d077030915e6bf9e7a95cbb1:mlnscript:TRUE:FALSE:lin
+3.16:Oct 2025:fd2d6273ef25e20fa29a4317dc379794:mlnscript:TRUE:FALSE:mac
+3.16:Oct 2025:d9fddb468e16e5c913ac13bcd6f4f469:mlnscript:TRUE:FALSE:bsd
+3.16:Oct 2025:0d5ba91283e237eaedb6c2ae153b5a0d:mlnscript:TRUE:FALSE:bsd
 '
   versioninfo <- utils::read.delim(textConnection(versioninfostr), header = TRUE, sep = ":", strip.white = TRUE)
   if (isTRUE(checkversion)) {
     # Allow disabling the version check if it is slowing things down (e.g. in a simulation study)
     currentver <- versioninfo[versioninfo$md5 == digest::digest(cmd, algo = "md5", file = TRUE), ]
     if (nrow(currentver) == 0) {
-      versiontext <- "MLwiN (version: unknown or >3.14)"
+      versiontext <- "MLwiN (version: unknown or >3.16)"
     } else {
       if (currentver$version < 2.36) {
         # Block releases older than a year or so (allow 2.36 as this corresponds to the trial version)
