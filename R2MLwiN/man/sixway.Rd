@@ -7,7 +7,7 @@
 sixway(chain, name = NULL, acf.maxlag = 100, pacf.maxlag = 10, ...)
 }
 \arguments{
-\item{chain}{A numeric vector, \code{\link{mcmc}} object or \code{\link{mcmc.list}} object 
+\item{chain}{A numeric vector, \code{\link[coda]{mcmc}} object or \code{\link[coda]{mcmc.list}} object 
 (in which case uses its \code{thin} argument, otherwise assumes thinning = 1), storing the
 MCMC chain for a chosen parameter.}
 

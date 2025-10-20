@@ -91,7 +91,7 @@ is instead referenced via \code{data}.}
 is specified) used to store the MLwiN worksheet after the model has been estimated.}
 }
 \value{
-If \code{BUGO} is non-NULL then the output is an \code{\link{mcmc.list}}
+If \code{BUGO} is non-NULL then the output is an \code{\link[coda]{mcmc.list}}
 object.
 
 If the IGLS algorithm is used (i.e., \code{EstM = 0}), then returns \code{\link{mlwinfitIGLS-class}} object;
