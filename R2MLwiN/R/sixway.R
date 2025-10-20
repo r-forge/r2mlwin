@@ -3,7 +3,7 @@
 #' This function produces a variety of diagnostic plots and statistics for MCMC
 #' chains.
 #'
-#' @param chain A numeric vector, \code{\link{mcmc}} object or \code{\link{mcmc.list}} object 
+#' @param chain A numeric vector, \code{\link[coda]{mcmc}} object or \code{\link[coda]{mcmc.list}} object 
 #' (in which case uses its \code{thin} argument, otherwise assumes thinning = 1), storing the
 #' MCMC chain for a chosen parameter.
 #' @param name The parameter name. If \code{name = NULL}, the column name of \code{chain} will
