@@ -19,7 +19,6 @@ Imports:
     foreach,
     parallel,
     doParallel,
-    doRNG,
     coda (>= 0.16-1),
     lattice,
     memisc,
@@ -31,6 +30,7 @@ Suggests:
     lmtest,
     mitools,
     reshape,
+    doRNG,
     R2WinBUGS,
     R2OpenBUGS
 Description: An R command interface to the 'MLwiN' multilevel
