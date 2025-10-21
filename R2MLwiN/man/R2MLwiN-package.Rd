@@ -148,7 +148,9 @@ demo(MCMCGuide03)
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://www.bristol.ac.uk/cmm/software/r2mlwin/,https://r-forge.r-project.org/projects/r2mlwin/,http://www.bristol.ac.uk/cmm/software/mlwin/}
+  \item \url{https://www.bristol.ac.uk/cmm/software/r2mlwin/}
+  \item \url{https://r-forge.r-project.org/projects/r2mlwin/}
+  \item \url{https://www.bristol.ac.uk/cmm/software/mlwin/}
 }
 
 }
