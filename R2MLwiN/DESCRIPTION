@@ -36,8 +36,8 @@ Suggests:
 Description: An R command interface to the 'MLwiN' multilevel
     modelling software package.
 License: GPL (>= 2)
-URL: http://www.bristol.ac.uk/cmm/software/r2mlwin/,https://r-forge.r-project.org/projects/r2mlwin/,http://www.bristol.ac.uk/cmm/software/mlwin/
+URL: https://www.bristol.ac.uk/cmm/software/r2mlwin/, https://r-forge.r-project.org/projects/r2mlwin/, https://www.bristol.ac.uk/cmm/software/mlwin/
 SystemRequirements: MLwiN, (OpenBUGS, WinBUGS optional)
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 LazyData: true
