@@ -1337,6 +1337,7 @@ version:date:md5:filename:x64:trial:platform
 3.16:Oct 2025:fd2d6273ef25e20fa29a4317dc379794:mlnscript:TRUE:FALSE:mac
 3.16:Oct 2025:d9fddb468e16e5c913ac13bcd6f4f469:mlnscript:TRUE:FALSE:bsd
 3.16:Oct 2025:0d5ba91283e237eaedb6c2ae153b5a0d:mlnscript:TRUE:FALSE:bsd
+3.16:Oct 2025:2baf5f81c8b56e3e1c5c75ecf5f7da28:mlnscript:TRUE:FALSE:bsd
 '
   versioninfo <- utils::read.delim(textConnection(versioninfostr), header = TRUE, sep = ":", strip.white = TRUE)
   if (isTRUE(checkversion)) {
