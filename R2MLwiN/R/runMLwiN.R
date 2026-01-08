@@ -1338,13 +1338,28 @@ version:date:md5:filename:x64:trial:platform
 3.16:Oct 2025:d9fddb468e16e5c913ac13bcd6f4f469:mlnscript:TRUE:FALSE:bsd
 3.16:Oct 2025:0d5ba91283e237eaedb6c2ae153b5a0d:mlnscript:TRUE:FALSE:bsd
 3.16:Oct 2025:2baf5f81c8b56e3e1c5c75ecf5f7da28:mlnscript:TRUE:FALSE:bsd
+3.17:Dec 2025:17d9293d80d6e88123a08c8635205a17:mlwin.exe:TRUE:FALSE:win
+3.17:Dec 2025:f686f0492bf89afcc64dbf08507d993d:mlnscript.exe:TRUE:FALSE:win
+3.17:Dec 2025:4d6f9861d085a522b42c76a0ba34fc79:mlnscript:TRUE:FALSE:lin
+3.17:Dec 2025:f0699681b170440e4854cb8b1c684e78:mlnscript:TRUE:FALSE:lin
+3.17:Dec 2025:b6e532bb277d3d9607bf8f2281d65c51:mlnscript:TRUE:FALSE:lin
+3.17:Dec 2025:697ba91c99b25be1359e673f0755be93:mlnscript:TRUE:FALSE:lin
+3.17:Dec 2025:7c4e9444e450d5ec475c4fb3c0931b32:mlnscript:TRUE:FALSE:lin
+3.17:Dec 2025:4e74ba742492373912da38f96b31e9da:mlnscript:TRUE:FALSE:lin
+3.17:Dec 2025:e5f7d800ea314fee9bd42be74f09e7bb:mlnscript:TRUE:FALSE:lin
+3.17:Dec 2025:4c41a68e73f905ecd992e02dfe643fef:mlnscript:TRUE:FALSE:lin
+3.17:Dec 2025:28a5a9e70f04fe7ae7ec71c0a87413f5:mlnscript:TRUE:FALSE:lin
+3.17:Dec 2025:dd322d14dde9aea885479632dc6f8e69:mlnscript:TRUE:FALSE:mac
+3.17:Dec 2025:652d3bd0952d81f1f185cd593af40f74:mlnscript:TRUE:FALSE:bsd
+3.17:Dec 2025:1f8da1aae234554f2fea74244bcb2ba8:mlnscript:TRUE:FALSE:bsd
+3.17:Dec 2025:c6b546e3a956ef910c1761ae8c11e1cb:mlnscript:TRUE:FALSE:bsd
 '
   versioninfo <- utils::read.delim(textConnection(versioninfostr), header = TRUE, sep = ":", strip.white = TRUE)
   if (isTRUE(checkversion)) {
     # Allow disabling the version check if it is slowing things down (e.g. in a simulation study)
     currentver <- versioninfo[versioninfo$md5 == digest::digest(cmd, algo = "md5", file = TRUE), ]
     if (nrow(currentver) == 0) {
-      versiontext <- "MLwiN (version: unknown or >3.16)"
+      versiontext <- "MLwiN (version: unknown or >3.17)"
     } else {
       if (currentver$version < 2.36) {
         # Block releases older than a year or so (allow 2.36 as this corresponds to the trial version)
